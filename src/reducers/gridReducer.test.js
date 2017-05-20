@@ -8,12 +8,12 @@ const state = {
 }
 const loadedAction = {
     type: types.LOADED,
-    data: {items: []}
+    payload: {items: []}
 }
 
 describe('gridReducer', () => {
     it('should create return state with loaded data', () => {
         const actual = gridReducer(state, loadedAction);
-        expect(actual.data).toEqual(loadedAction.data);
+        expect(actual.data).toEqual(loadedAction.payload);
     })
 })

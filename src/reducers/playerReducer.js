@@ -12,8 +12,8 @@ export default function playerReducer(state = defaultState, action) {
         case types.LOADED:
             return Object.assign({}, state, {
                 data: {
-                    id: action.data.id,
-                    src: action.data.src
+                    id: action.payload.id,
+                    src: action.payload.src
                 }
             });
         default:

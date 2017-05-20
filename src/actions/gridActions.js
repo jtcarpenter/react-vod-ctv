@@ -6,9 +6,9 @@ export function load() {
     };
 }
 
-export function loaded(data) {
+export function loaded(payload) {
     return {
         type: types.LOADED,
-        data
+        payload
     }
 }

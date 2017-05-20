@@ -14,7 +14,7 @@ describe('gridActions', () => {
     it('should create an action to return data', () => {
         const expectedAction = {
             type: types.LOADED,
-            data: gridData
+            payload: gridData
         }
         expect(actions.loaded(gridData)).toEqual(expectedAction);
     });

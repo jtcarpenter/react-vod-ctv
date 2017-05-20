@@ -10,7 +10,7 @@ export default function gridReducer(state = defaultState, action) {
     switch (action.type) {
         case types.LOADED:
             return Object.assign({}, state, {
-                data: action.data
+                data: action.payload
             });
         default:
             return state;

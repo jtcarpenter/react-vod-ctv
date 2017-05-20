@@ -12,7 +12,7 @@ describe('playerActions', () => {
     it('should create an action to load data', () => {
         const expectedAction = {
             type: types.LOAD,
-            data: playerOpts
+            payload: playerOpts
         }
         expect(actions.load(playerOpts)).toEqual(expectedAction);
     });
@@ -20,7 +20,7 @@ describe('playerActions', () => {
     it('should create an action to return data', () => {
         const expectedAction = {
             type: types.LOADED,
-            data: playerData
+            payload: playerData
         }
         expect(actions.loaded(playerData)).toEqual(expectedAction);
     })

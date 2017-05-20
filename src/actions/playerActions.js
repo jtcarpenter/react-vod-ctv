@@ -1,15 +1,15 @@
 import * as types from '../constants/playerActionTypes';
 
-export function load(opts) {
+export function load(payload) {
     return {
         type: types.LOAD,
-        data: opts
+        payload
     };
 }
 
-export function loaded(data) {
+export function loaded(payload) {
     return {
         type: types.LOADED,
-        data
+        payload
     }
 }

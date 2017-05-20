@@ -9,7 +9,7 @@ const state = {
 }
 const loadedAction = {
     type: types.LOADED,
-    data: {
+    payload: {
         id: 1,
         src: 'test'
     }
@@ -18,6 +18,6 @@ const loadedAction = {
 describe('playerReducer', () => {
     it('should create return state with loaded data', () => {
         const actual = playerReducer(state, loadedAction);
-        expect(actual.data).toEqual(loadedAction.data);
+        expect(actual.data).toEqual(loadedAction.payload);
     })
 })
