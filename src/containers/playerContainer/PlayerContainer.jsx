@@ -14,10 +14,10 @@ export class PlayerContainer extends Component {
     }
 
     render() {
-        const {player} = this.props;
+        const {playerState} = this.props;
         return (
             <div>
-                <Player data={player.data}></Player>
+                <Player data={playerState.data}></Player>
             </div>
         )
     }
@@ -28,5 +28,5 @@ export class PlayerContainer extends Component {
 }
 
 export default connect((state) => ({
-    player: state.playerReducer
+    playerState: state.playerReducer
 }))(PlayerContainer);

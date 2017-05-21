@@ -3,10 +3,12 @@ import {shallow} from 'enzyme';
 import {GridContainer} from './GridContainer';
 
 const gridData = {data: {items: []}};
+const keyData = {lastKeyPressed: null};
 const mockDispatch = () => ({});
 const gridContainer = (
     <GridContainer
-        grid={gridData}
+        gridState={gridData}
+        keyState={keyData}
         dispatch={mockDispatch}
     >
     </GridContainer>

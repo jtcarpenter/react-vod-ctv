@@ -1,4 +1,4 @@
-import * as types from '../constants/gridActionTypes';
+import * as gridTypes from '../constants/gridActionTypes';
 
 const defaultState = {
     data: {
@@ -8,7 +8,7 @@ const defaultState = {
 
 export default function gridReducer(state = defaultState, action) {
     switch (action.type) {
-        case types.LOADED:
+        case gridTypes.LOADED:
             return Object.assign({}, state, {
                 data: action.payload
             });

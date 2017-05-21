@@ -14,12 +14,13 @@ export class GridContainer extends Component {
     }
 
     render() {
-        const {grid} = this.props;
+        const {gridState, keyState} = this.props;
+        console.log('keyState.lastKeyPressed: ', keyState.lastKeyPressed);
         return (
             <div>
                 <Grid
-                    cols="3"
-                    data={grid.data}
+                    cols={gridState.cols}
+                    data={gridState.data}
                     handleSelect={this.handleSelect}
                 ></Grid>
             </div>
@@ -36,5 +37,6 @@ export class GridContainer extends Component {
 }
 
 export default connect((state) => ({
-    grid: state.gridReducer
+    gridState: state.gridReducer,
+    keyState: state.keyReducer
 }))(GridContainer);

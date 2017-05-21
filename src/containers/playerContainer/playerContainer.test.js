@@ -7,7 +7,7 @@ const mockDispatch = () => ({});
 const playerContainer = (
     <PlayerContainer
         dispatch={mockDispatch}
-        player={playerData}
+        playerState={playerData}
     >
     </PlayerContainer>
 );
