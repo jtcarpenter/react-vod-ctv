@@ -4,8 +4,8 @@ import * as actions from '../actions/playerActions'
 import {api} from '../services/api'
 
 // Our worker Saga: will perform the async task
-export function *loaded(opts) {
-    const data = yield call(api.player.get, opts.data);
+export function *loaded(action) {
+    const data = yield call(api.player.get, action.payload);
     if (data.error) {
         // TODO: handle error
     }
