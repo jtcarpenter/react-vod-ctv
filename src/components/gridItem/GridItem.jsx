@@ -1,16 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export function GridItem({item, handleSelect}) {
+export function GridItem({item, handleSelect, focused}) {
 
     function handleClick() {
         handleSelect(item.id);
     }
 
+    const className = focused
+        ? 'grid-item grid-item--focused'
+        : 'grid-item';
+
     return (
         <Link to={`/player/${item.id}`}>
             <div
-                className="grid-item"
+                className={className}
                 id={item.id}
                 onClick={handleClick}
             >

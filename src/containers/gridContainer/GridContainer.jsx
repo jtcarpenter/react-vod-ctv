@@ -15,13 +15,13 @@ export class GridContainer extends Component {
 
     render() {
         const {gridState, keyState} = this.props;
-        console.log('keyState.lastKeyPressed: ', keyState.lastKeyPressed);
         return (
             <div>
                 <Grid
                     cols={gridState.cols}
                     data={gridState.data}
                     handleSelect={this.handleSelect}
+                    currentFocus={keyState.currentFocus}
                 ></Grid>
             </div>
         )
@@ -39,4 +39,4 @@ export class GridContainer extends Component {
 export default connect((state) => ({
     gridState: state.gridReducer,
     keyState: state.keyReducer
-}))(GridContainer);
+}), null, null, {withRef: true})(GridContainer);

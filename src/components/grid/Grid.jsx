@@ -1,7 +1,7 @@
 import React from 'react';
 import GridRow from '../gridRow/GridRow.jsx';
 
-export function Grid({cols, data = {items: []}, handleSelect}) {
+export function Grid({cols, data = {items: []}, handleSelect, currentFocus}) {
     const rows = [];
     data.items.forEach((item, index) => {
         if (index % cols === 0) {
@@ -17,6 +17,7 @@ export function Grid({cols, data = {items: []}, handleSelect}) {
                     key={index}
                     row={row}
                     handleSelect={handleSelect}
+                    currentFocus={currentFocus}
                 >
                 </GridRow>
             )}
