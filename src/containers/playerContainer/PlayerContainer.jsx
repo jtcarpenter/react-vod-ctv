@@ -9,8 +9,8 @@ export class PlayerContainer extends Component {
         super();
         this.load = this.load.bind(this);
         this.props = props;
-        const {params} = this.props;
-        this.load(params);
+        const {match} = this.props;
+        this.load(match.params);
     }
 
     render() {
