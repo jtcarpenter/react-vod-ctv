@@ -4,12 +4,12 @@ import {GridContainer} from './GridContainer';
 
 const gridData = {data: {items: []}};
 const keyData = {lastKeyPressed: null};
-const mockDispatch = () => ({});
+const mockLoad = () => ({});
 const gridContainer = (
     <GridContainer
         gridState={gridData}
         keyState={keyData}
-        dispatch={mockDispatch}
+        load={mockLoad}
     >
     </GridContainer>
 );

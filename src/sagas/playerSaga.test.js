@@ -12,7 +12,7 @@ const playerData = {
 
 describe('playerSaga', () => {
 
-    const generator = loaded({data: playerOpts});
+    const generator = loaded({payload: playerOpts});
 
     it('should yield actions.load', () => {
         const next = generator.next(actions.load(playerOpts))
