@@ -1,24 +1,18 @@
 import React from 'react';
 import GridItem from '../gridItem/GridItem.jsx';
-import Nav from '../Nav/Nav.jsx';
 
 export function GridRow({row, handleSelect}) {
 
     return (
         <div className="grid-row">
             {row.map((item, index) =>
-                <Nav
+                <GridItem
                     key={index}
-                    right={index % 3 !== 2}
-                    navId={item.id.toString()}
+                    index={index}
+                    item={item}
+                    handleSelect={handleSelect}
                 >
-                    <GridItem
-                        key={index}
-                        item={item}
-                        handleSelect={handleSelect}
-                    >
-                    </GridItem>
-                </Nav>
+                </GridItem>
             )}
         </div>
     )

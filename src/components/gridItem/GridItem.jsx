@@ -1,27 +1,31 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import focusable from '../../hocs/focusable.jsx';
+
+const decorateClassName = (className, focused) => {
+    return focused
+        ? `${className} ${className}--focused`
+        : className;
+}
 
 export function GridItem({item, handleSelect, focused}) {
 
     function handleClick() {
+        // @TODO:
         handleSelect(item.id);
     }
-
-    const className = focused
-        ? 'grid-item grid-item--focused'
-        : 'grid-item';
 
     return (
         <Link to={`/player/${item.id}`}>
             <div
-                className={className}
                 id={item.id}
                 onClick={handleClick}
+                className={decorateClassName('grid-item', focused)}
             >
                 {item.title}
             </div>
         </Link>
-    )
+    );
 }
 
-export default GridItem;
+export default focusable(GridItem);

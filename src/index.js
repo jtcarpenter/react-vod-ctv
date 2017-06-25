@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GridContainer from './containers/gridContainer/GridContainer.jsx';
-import PlayerContainer from './containers/playerContainer/PlayerContainer.jsx';
+import Grid from './containers/gridContainer/GridContainer.jsx';
+import Player from './containers/playerContainer/PlayerContainer.jsx';
 import {Provider} from 'react-redux';
 import appStore from './store/appStore';
 import {Route, BrowserRouter, HashRouter, Switch} from 'react-router-dom';
@@ -16,13 +16,13 @@ ReactDOM.render(
                     <Route
                         exact
                         path="/"
-                        component={GridContainer}
+                        component={Grid}
                     >
                     </Route>
                     <Route
                         exact
                         path="/player/(:id)"
-                        component={PlayerContainer}
+                        component={Player}
                     >
                     </Route>
                 </Switch>

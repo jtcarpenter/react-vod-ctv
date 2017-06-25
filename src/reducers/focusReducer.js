@@ -1,0 +1,19 @@
+import * as focusTypes from '../constants/focusActionTypes';
+
+const defaultState = {
+    // @TODO: This will be dependent on context
+    currentFocus: '0'
+}
+
+export default function keyReducer(state = defaultState, action) {
+    switch (action.type) {
+        case focusTypes.CHANGE_FOCUS: {
+            const {focusKey = state.currentFocus} = action.payload;
+            return Object.assign({}, state, {
+                currentFocus: focusKey
+            });
+        }
+        default:
+            return state;
+    }
+}

@@ -21,7 +21,7 @@
         "accessor-pairs": "error",
         "array-bracket-spacing": "error",
         "array-callback-return": "error",
-        "arrow-body-style": "error",
+        "arrow-body-style": "off",
         "arrow-parens": [
             "error",
             "always"

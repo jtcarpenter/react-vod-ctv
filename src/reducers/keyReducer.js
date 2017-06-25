@@ -1,8 +1,7 @@
 import * as keyTypes from '../constants/keyActionTypes';
 
 const defaultState = {
-    lastKeyPressed: null,
-    currentFocus: '0'
+    lastKeyPressed: null
 }
 
 export default function keyReducer(state = defaultState, action) {

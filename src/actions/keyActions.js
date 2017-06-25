@@ -1,8 +1,8 @@
-import * as types from '../constants/keyActionTypes';
+import * as keyTypes from '../constants/keyActionTypes';
 
 export function keyPressed(keyType) {
     return {
-        type: types.KEY_PRESSED,
+        type: keyTypes.KEY_PRESSED,
         payload: {
             keyType
         }
