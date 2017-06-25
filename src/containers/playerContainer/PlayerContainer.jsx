@@ -7,10 +7,9 @@ export class PlayerContainer extends Component {
 
     constructor(props) {
         super();
-        this.load = this.load.bind(this);
         this.props = props;
         const {match} = this.props;
-        this.load(match.params);
+        this.props.load(match.params);
     }
 
     render() {
@@ -21,12 +20,20 @@ export class PlayerContainer extends Component {
             </div>
         )
     }
-
-    load(opts) {
-        this.props.dispatch(load(opts));
-    }
 }
 
-export default connect((state) => ({
-    playerState: state.playerReducer
-}))(PlayerContainer);
+const mapStateToProps = (state) => {
+    return {
+        playerState: state.playerReducer
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        load: (opts) => {
+            dispatch(load(opts));
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerContainer);

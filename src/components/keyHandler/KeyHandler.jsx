@@ -26,9 +26,17 @@ export class KeyHandler extends Component {
 
     componentDidMount() {
         window.addEventListener('keyup', (event) => {
-            this.props.dispatch(keyPressed(keys[event.keyCode]));
+            this.props.keyPressed(event);
         });
     }
 }
 
-export default connect()(KeyHandler);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        keyPressed: (event) => {
+            dispatch(keyPressed(keys[event.keyCode]));
+        }
+    }
+};
+
+export default connect(null, mapDispatchToProps)(KeyHandler);

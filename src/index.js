@@ -21,7 +21,7 @@ ReactDOM.render(
                     </Route>
                     <Route
                         exact
-                        path="/player/(:id)"
+                        path="/player/:id?"
                         component={Player}
                     >
                     </Route>

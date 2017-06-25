@@ -24,27 +24,27 @@ export function focusable(WrappedComponent) {
                 switch (this.props.keyState.lastKeyPressed.keyType) {
                     case keys.KEY_RIGHT:
                         if (this.props.item.nav.nextRight) {
-                            this.props.dispatch(
-                                changeFocus(this.props.item.nav.nextRight)
+                            this.props.changeFocus(
+                                this.props.item.nav.nextRight
                             );
                         }
                         break;
                     case keys.KEY_LEFT:
-                            this.props.dispatch(
-                                changeFocus(this.props.item.nav.nextLeft)
+                            this.props.changeFocus(
+                                this.props.item.nav.nextLeft
                             );
                         break;
                     case keys.KEY_UP:
                         if (this.props.item.nav.nextUp) {
-                            this.props.dispatch(
-                                changeFocus(this.props.item.nav.nextUp)
+                            this.props.changeFocus(
+                                this.props.item.nav.nextUp
                             );
                         }
                         break;
                     case keys.KEY_DOWN:
                         if (this.props.item.nav.nextDown) {
-                            this.props.dispatch(
-                                changeFocus(this.props.item.nav.nextDown)
+                            this.props.changeFocus(
+                                this.props.item.nav.nextDown
                             );
                         }
                         break;
@@ -71,10 +71,22 @@ export function focusable(WrappedComponent) {
         }
     }
 
-    return connect((state) => ({
-        keyState: state.keyReducer,
-        focusState: state.focusReducer
-    }))(Focusable);
+    const mapStateToProps = (state) => {
+        return {
+            keyState: state.keyReducer,
+            focusState: state.focusReducer
+        };
+    };
+
+    const mapDispatchToProps = (dispatch) => {
+        return {
+            changeFocus: (nextFocus) => {
+                dispatch(changeFocus(nextFocus));
+            }
+        }
+    };
+
+    return connect(mapStateToProps, mapDispatchToProps)(Focusable);
 }
 
 export default focusable;
