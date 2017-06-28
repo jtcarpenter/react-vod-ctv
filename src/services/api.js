@@ -6,8 +6,8 @@ export const api = {
     grid: {
         get: () => fetch(GRID_DATA_URL)
             .then((response) => {
-                if (response.status / 100 !== 2) {
-                    return {error: 'error'};
+                if (Math.floor(response.status / 100) !== 2) {
+                    return {error: 'error', status: response.status};
                 }
                 return response.json()
                     .then((data) => data);
@@ -20,7 +20,7 @@ export const api = {
     player: {
         get: (opts) => fetch(`${PLAYER_DATA_URL}-${opts.id}.json`)
             .then((response) => {
-                if (response.status / 100 !== 2) {
+                if (Math.floor(response.status / 100) !== 2) {
                     return {error: 'error'};
                 }
                 return response.json()
@@ -31,3 +31,5 @@ export const api = {
             })
     }
 }
+
+export default api;
