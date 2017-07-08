@@ -1,22 +1,22 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {GridContainer} from './GridContainer';
+import {HomeContainer} from './HomeContainer';
 
 const gridData = {data: {items: []}};
 const keyData = {lastKeyPressed: null};
 const mockLoad = () => ({});
-const gridContainer = (
-    <GridContainer
+const homeContainer = (
+    <HomeContainer
         gridState={gridData}
         keyState={keyData}
         load={mockLoad}
     >
-    </GridContainer>
+    </HomeContainer>
 );
 
-describe('GridContainer', () => {
+describe('HomeContainer', () => {
     it('should render', () => {
-        const wrapper = shallow(gridContainer);
+        const wrapper = shallow(homeContainer);
         expect(wrapper.exists()).toBe(true);
     })
 })

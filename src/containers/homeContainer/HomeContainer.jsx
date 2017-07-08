@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Grid from '../../components/grid/Grid.jsx';
+import Home from '../../components/home/Home.jsx';
 import {load} from '../../actions/gridActions';
 
-export class GridContainer extends Component {
+export class HomeContainer extends Component {
 
     constructor(props) {
         super();
@@ -50,12 +50,12 @@ export class GridContainer extends Component {
 
         return (
             <div>
-                <Grid
+                <Home
                     cols={gridState.cols}
                     data={data}
                     handleSelect={this.handleSelect}
                     currentFocus={keyState.currentFocus}
-                ></Grid>
+                ></Home>
             </div>
         )
     }
@@ -80,4 +80,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GridContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

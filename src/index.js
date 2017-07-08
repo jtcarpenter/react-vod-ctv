@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Grid from './containers/gridContainer/GridContainer.jsx';
+import Home from './containers/homeContainer/HomeContainer.jsx';
 import Player from './containers/playerContainer/PlayerContainer.jsx';
 import {Provider} from 'react-redux';
 import appStore from './store/appStore';
@@ -16,7 +16,7 @@ ReactDOM.render(
                     <Route
                         exact
                         path="/"
-                        component={Grid}
+                        component={Home}
                     >
                     </Route>
                     <Route
