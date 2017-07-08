@@ -1,17 +1,15 @@
-import * as gridTypes from '../constants/gridActionTypes';
+import * as homeTypes from '../constants/homeActionTypes';
 
 const defaultState = {
     data: {
         items: []
     },
-    focusedItem: 0,
-    cols: 3,
-    lastKeyPressed: null
+    cols: 3
 }
 
-export default function gridReducer(state = defaultState, action) {
+export default function homeReducer(state = defaultState, action) {
     switch (action.type) {
-        case gridTypes.LOADED:
+        case homeTypes.LOADED:
             return Object.assign({}, state, {
                 data: action.payload
             });

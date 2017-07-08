@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Home from '../../components/home/Home.jsx';
-import {load} from '../../actions/gridActions';
+import {load} from '../../actions/homeActions';
 import {withRouter} from 'react-router-dom';
 
 export class HomeContainer extends Component {
@@ -14,16 +14,16 @@ export class HomeContainer extends Component {
     }
 
     render() {
-        const {gridState, keyState} = this.props;
-        const data = Object.assign({}, gridState.data, {
-            items: gridState.data.items.map((datum, index) => {
+        const {homeState, keyState} = this.props;
+        const data = Object.assign({}, homeState.data, {
+            items: homeState.data.items.map((datum, index) => {
                 return Object.assign({}, datum, {
                     nav: {
                         focusKey: index.toString(),
                         nextRight: (
                             Math.min(
                                 index + 1,
-                                gridState.data.items.length - 1
+                                homeState.data.items.length - 1
                             )
                         ).toString(),
                         nextLeft: (
@@ -34,14 +34,14 @@ export class HomeContainer extends Component {
                         ).toString(),
                         nextUp: (
                             Math.max(
-                                index - gridState.cols,
+                                index - homeState.cols,
                                 0
                             )
                         ).toString(),
                         nextDown: (
                             Math.min(
-                                index + gridState.cols,
-                                gridState.data.items.length - 1
+                                index + homeState.cols,
+                                homeState.data.items.length - 1
                             )
                         ).toString()
                     }
@@ -52,7 +52,7 @@ export class HomeContainer extends Component {
         return (
             <div>
                 <Home
-                    cols={gridState.cols}
+                    cols={homeState.cols}
                     data={data}
                     handleSelect={this.handleSelect}
                     currentFocus={keyState.currentFocus}
@@ -68,7 +68,7 @@ export class HomeContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        gridState: state.gridReducer,
+        homeState: state.homeReducer,
         keyState: state.keyReducer
     };
 };

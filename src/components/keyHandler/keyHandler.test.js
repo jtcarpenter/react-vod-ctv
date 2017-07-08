@@ -7,9 +7,9 @@ const keyHandler = (
     </KeyHandler>
 );
 
-describe('Grid', () => {
+describe('KeyHandler', () => {
     it('should render', () => {
         const wrapper = shallow(keyHandler);
         expect(wrapper.exists()).toBe(true);
     })
-})
+});

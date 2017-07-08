@@ -15,4 +15,4 @@ describe('GridRow', () => {
         const wrapper = shallow(gridRow);
         expect(wrapper.exists()).toBe(true);
     })
-})
+});

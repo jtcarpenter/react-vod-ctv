@@ -1,5 +1,5 @@
-import gridReducer from './gridReducer'
-import * as types from '../constants/gridActionTypes'
+import homeReducer from './homeReducer'
+import * as homeTypes from '../constants/homeActionTypes'
 
 const state = {
     data: {
@@ -7,13 +7,13 @@ const state = {
     }
 }
 const loadedAction = {
-    type: types.LOADED,
+    type: homeTypes.LOADED,
     payload: {items: []}
 }
 
-describe('gridReducer', () => {
+describe('homeReducer', () => {
     it('should create return state with loaded data', () => {
-        const actual = gridReducer(state, loadedAction);
+        const actual = homeReducer(state, loadedAction);
         expect(actual.data).toEqual(loadedAction.payload);
     })
-})
+});

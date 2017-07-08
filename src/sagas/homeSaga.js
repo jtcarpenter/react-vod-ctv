@@ -1,11 +1,11 @@
 import {call, put, takeEvery} from 'redux-saga/effects'
-import * as types from '../constants/gridActionTypes'
-import * as actions from '../actions/gridActions'
+import * as homeTypes from '../constants/homeActionTypes'
+import * as actions from '../actions/homeActions'
 import {api} from '../services/api'
 
 // Our worker Saga: will perform the async task
 export function *loaded() {
-    const data = yield call(api.grid.get);
+    const data = yield call(api.home.get);
     if (data.error) {
         // TODO: handle error
     }
@@ -14,5 +14,5 @@ export function *loaded() {
 
 // Our watcher Saga: spawn a new loaded task on each LOAD
 export function *watchLoad() {
-    yield takeEvery(types.LOAD, loaded)
+    yield takeEvery(homeTypes.LOAD, loaded)
 }

@@ -5,12 +5,12 @@ import {Home} from './Home';
 const homeData = {data: {items: []}};
 const home = (
     <Home
-        home={homeData}
+        data={homeData}
     >
     </Home>
 );
 
-describe('Grid', () => {
+describe('Home', () => {
     it('should render', () => {
         const wrapper = shallow(home);
         expect(wrapper.exists()).toBe(true);

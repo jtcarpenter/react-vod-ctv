@@ -18,9 +18,9 @@ describe('api', () => {
         );
     });
 
-    describe('grid', () => {
+    describe('home', () => {
         it('returns data on successful get response', () => {
-            api.grid.get().then((response) => {
+            api.home.get().then((response) => {
                 expect(response.test).toBe('test');
             })
             .catch(() => {});

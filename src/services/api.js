@@ -1,13 +1,16 @@
-const GRID_DATA_URL = '/grid-data.json';
+const HOME_DATA_URL = '/home-data.json';
 const PLAYER_DATA_URL = '/item-data';
 
 export const api = {
 
-    grid: {
-        get: () => fetch(GRID_DATA_URL)
+    home: {
+        get: () => fetch(HOME_DATA_URL)
             .then((response) => {
                 if (Math.floor(response.status / 100) !== 2) {
-                    return {error: 'error', status: response.status};
+                    return {
+                        error: 'error',
+                        status: response.status
+                    };
                 }
                 return response.json()
                     .then((data) => data);

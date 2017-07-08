@@ -2,12 +2,12 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import {HomeContainer} from './HomeContainer';
 
-const gridData = {data: {items: []}};
+const homeData = {data: {items: []}};
 const keyData = {lastKeyPressed: null};
 const mockLoad = () => ({});
 const homeContainer = (
     <HomeContainer
-        gridState={gridData}
+        homeState={homeData}
         keyState={keyData}
         load={mockLoad}
     >
