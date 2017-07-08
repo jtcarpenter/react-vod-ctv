@@ -48,7 +48,7 @@ export class Focusable extends Component {
                     }
                     break;
                 case keys.KEY_OK:
-                    // @TODO: onEngage, event?
+                    this.props.handleSelect(this.props.item.nav.focusKey)
                     break;
                 default:
                     break;

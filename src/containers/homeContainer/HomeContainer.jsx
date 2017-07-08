@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Home from '../../components/home/Home.jsx';
 import {load} from '../../actions/gridActions';
+import {withRouter} from 'react-router-dom';
 
 export class HomeContainer extends Component {
 
@@ -61,7 +62,7 @@ export class HomeContainer extends Component {
     }
 
     handleSelect(index) {
-        console.log(`${index} selected`);
+        this.props.history.push(`/player/${index}`);
     }
 }
 
@@ -80,4 +81,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+);
