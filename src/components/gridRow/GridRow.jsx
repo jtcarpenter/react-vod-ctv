@@ -1,18 +1,18 @@
 import React from 'react';
-import GridItem from '../gridItem/GridItem.jsx';
+import ContentButton from '../contentButton/ContentButton.jsx';
 
 export function GridRow({row, handleSelect}) {
 
     return (
         <div className="grid-row">
             {row.map((item, index) =>
-                <GridItem
+                <ContentButton
                     key={index}
                     index={index}
                     item={item}
                     handleSelect={handleSelect}
                 >
-                </GridItem>
+                </ContentButton>
             )}
         </div>
     )

@@ -3,12 +3,12 @@ import {shallow} from 'enzyme';
 import {HomeContainer} from './HomeContainer';
 
 const homeData = {data: {items: []}};
-const keyData = {lastKeyPressed: null};
+const focusData = {currentFocus: '0'};
 const mockLoad = () => ({});
 const homeContainer = (
     <HomeContainer
         homeState={homeData}
-        keyState={keyData}
+        focusState={focusData}
         load={mockLoad}
     >
     </HomeContainer>

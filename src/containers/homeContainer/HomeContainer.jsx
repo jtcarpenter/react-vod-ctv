@@ -13,17 +13,16 @@ export class HomeContainer extends Component {
         this.props.load();
     }
 
-    render() {
-        const {homeState, keyState} = this.props;
-        const data = Object.assign({}, homeState.data, {
-            items: homeState.data.items.map((datum, index) => {
+    parseGrid(data, cols) {
+        return Object.assign({}, data, {
+            items: data.items.map((datum, index) => {
                 return Object.assign({}, datum, {
                     nav: {
                         focusKey: index.toString(),
                         nextRight: (
                             Math.min(
                                 index + 1,
-                                homeState.data.items.length - 1
+                                data.items.length - 1
                             )
                         ).toString(),
                         nextLeft: (
@@ -34,28 +33,92 @@ export class HomeContainer extends Component {
                         ).toString(),
                         nextUp: (
                             Math.max(
-                                index - homeState.cols,
+                                index - cols,
                                 0
                             )
                         ).toString(),
                         nextDown: (
                             Math.min(
-                                index + homeState.cols,
-                                homeState.data.items.length - 1
+                                index + cols,
+                                data.items.length - 1
                             )
                         ).toString()
                     }
                 });
-            })
+            }),
+            cols
         })
+    }
+
+    parseCategories(data) {
+        // @TODO: give categories to data
+        const categories = [
+            {items: data.items.slice(0, 4)},
+            {items: data.items.slice(4, 6)},
+            {items: data.items.slice(6)}
+        ];
+
+        const lanes = [];
+        let i = null;
+        let l = null;
+        let offset = 0;
+        let nextOffset = 0;
+        const parseCategory = (category, index) => {
+            return Object.assign({}, category, {
+                nav: {
+                    focusKey: (offset + index).toString(),
+                    nextRight: (
+                        Math.min(
+                            offset + index + 1,
+                            offset + categories[i].items.length - 1
+                        )
+                    ).toString(),
+                    nextLeft: (
+                        Math.max(
+                            offset + index - 1,
+                            0
+                        )
+                    ).toString(),
+                    nextDown: (
+                        categories[i + 1]
+                            ? nextOffset
+                            : offset
+                    ).toString(),
+                    nextUp: (
+                        Math.max(
+                            offset - (categories[i - 1]
+                                ? (categories[i - 1].items.length)
+                                : 0),
+                            0
+                        )
+                    ).toString()
+                }
+            })
+        }
+
+        for (i = 0, l = categories.length; i < l; i += 1) {
+            nextOffset += categories[i].items.length;
+            lanes.push({
+                items: categories[i].items.map(parseCategory)
+            });
+            offset = nextOffset;
+        }
+
+        return {lanes};
+    }
+
+    render() {
+        const {homeState, focusState} = this.props;
+        const gridData = this.parseGrid(homeState.data, homeState.cols);
+        const laneData = this.parseCategories(homeState.data);
 
         return (
             <div>
                 <Home
-                    cols={homeState.cols}
-                    data={data}
+                    laneData={laneData}
+                    gridData={gridData}
                     handleSelect={this.handleSelect}
-                    currentFocus={keyState.currentFocus}
+                    currentFocus={focusState.currentFocus}
                 ></Home>
             </div>
         )
@@ -69,7 +132,7 @@ export class HomeContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         homeState: state.homeReducer,
-        keyState: state.keyReducer
+        focusState: state.focusReducer
     };
 };
 

@@ -8,7 +8,7 @@ const decorateClassName = (className, focused) => {
         : className;
 }
 
-export function GridItem({item, handleSelect, focused}) {
+export function ContentButton({item, handleSelect, focused}) {
 
     function handleClick() {
         // @TODO:
@@ -20,7 +20,7 @@ export function GridItem({item, handleSelect, focused}) {
             <div
                 id={item.id}
                 onClick={handleClick}
-                className={decorateClassName('grid-item', focused)}
+                className={decorateClassName('content-button', focused)}
             >
                 {item.title}
             </div>
@@ -28,4 +28,4 @@ export function GridItem({item, handleSelect, focused}) {
     );
 }
 
-export default focusable(GridItem);
+export default focusable(ContentButton);

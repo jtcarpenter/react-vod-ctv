@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import {Home} from './Home';
 
-const homeData = {data: {items: []}};
+const homeData = {lanes: []};
 const home = (
     <Home
         data={homeData}

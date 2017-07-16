@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 .grid-row {
@@ -9,7 +10,7 @@ body {
     border: 1px dashed #666;
 }
 
-.grid-item {
+.content-button {
     width: 100px;
     height: 100px;
     margin: 5px;
@@ -18,8 +19,14 @@ body {
     float: left;
 }
 
-.grid-item--focused {
+.content-button--focused {
     background-color: grey;
+}
+
+.lane {
+    height: 110px;
+    margin: 5px;
+    border: 1px dashed #666;
 }
 
 .player-controls {
