@@ -1,3 +1,6 @@
+body {
+    margin: 0;
+}
 
 .grid-row {
     width: 330px;
@@ -16,5 +19,35 @@
 }
 
 .grid-item--focused {
+    background-color: grey;
+}
+
+.player-controls {
+    border: 1px dashed grey;
+    overflow: hidden;
+    padding: 5px;
+    position: absolute;
+}
+
+.play-button {
+    float: left;
+    padding: 5px;
+    border: 1px solid grey;
+    margin-right: 5px;
+}
+
+.play-button--focused {
+    color: white;
+    background-color: grey;
+}
+
+.progress-bar {
+    float: left;
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+.progress-bar--focused {
+    color: white;
     background-color: grey;
 }

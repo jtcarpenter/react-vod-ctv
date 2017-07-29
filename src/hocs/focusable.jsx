@@ -15,6 +15,9 @@ export class Focusable extends Component {
     }
 
     componentDidUpdate() {
+        if (!this.props.item || !this.props.item.nav) {
+            return false;
+        }
         const focused = isFocused(
             this.props.item.nav.focusKey,
             this.props.focusState
@@ -48,7 +51,11 @@ export class Focusable extends Component {
                     }
                     break;
                 case keys.KEY_OK:
-                    this.props.handleSelect(this.props.item.nav.focusKey)
+                    if (this.props.handleSelect) {
+                        this.props.handleSelect(
+                            this.props.item.nav.focusKey
+                        );
+                    }
                     break;
                 default:
                     break;
@@ -57,11 +64,15 @@ export class Focusable extends Component {
     }
 
     render() {
+        let focused = false
         const {WrappedComponent} = this.props;
-        const focused = isFocused(
-            this.props.item.nav.focusKey,
-            this.props.focusState
-        );
+        if (this.props.item && this.props.item.nav) {
+            focused = isFocused(
+                this.props.item.nav.focusKey,
+                this.props.focusState
+            );
+        }
+
         return (
             <WrappedComponent
                 focused={focused}

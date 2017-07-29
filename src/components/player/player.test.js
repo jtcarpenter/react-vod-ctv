@@ -6,9 +6,11 @@ const playerData = {
     id: 1,
     src: 'test'
 };
+const navItems = [{}, {}];
 const player = (
     <Player
         data={playerData}
+        navItems={navItems}
     >
     </Player>
 )

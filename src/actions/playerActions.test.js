@@ -23,5 +23,33 @@ describe('playerActions', () => {
             payload: playerData
         }
         expect(actions.loaded(playerData)).toEqual(expectedAction);
-    })
+    });
+
+    it('should create an action to attempt to start playback', () => {
+        const expectedAction = {
+            type: types.PLAY_VIDEO
+        }
+        expect(actions.playVideo()).toEqual(expectedAction);
+    });
+
+    it('should create an action to attempt to pause playback', () => {
+        const expectedAction = {
+            type: types.PAUSE_VIDEO
+        }
+        expect(actions.pauseVideo()).toEqual(expectedAction);
+    });
+
+    it('should create an action for play did start', () => {
+        const expectedAction = {
+            type: types.DID_PLAY_VIDEO
+        }
+        expect(actions.didPlayVideo()).toEqual(expectedAction);
+    });
+
+    it('should create an action for play did pause', () => {
+        const expectedAction = {
+            type: types.DID_PAUSE_VIDEO
+        }
+        expect(actions.didPauseVideo()).toEqual(expectedAction);
+    });
 })

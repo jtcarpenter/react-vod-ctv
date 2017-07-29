@@ -13,3 +13,27 @@ export function loaded(payload) {
         payload
     }
 }
+
+export function playVideo() {
+    return {
+        type: types.PLAY_VIDEO
+    }
+}
+
+export function pauseVideo() {
+    return {
+        type: types.PAUSE_VIDEO
+    }
+}
+
+export function didPlayVideo() {
+    return {
+        type: types.DID_PLAY_VIDEO
+    }
+}
+
+export function didPauseVideo() {
+    return {
+        type: types.DID_PAUSE_VIDEO
+    }
+}
