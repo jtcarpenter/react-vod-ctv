@@ -36,25 +36,32 @@ body {
     position: absolute;
 }
 
-.play-button {
+.button {
+    margin-left: 5px;
+}
+
+.button:first-child {
+    margin-left: 0;
+}
+
+.button__play {
     float: left;
     padding: 5px;
     border: 1px solid grey;
-    margin-right: 5px;
 }
 
-.play-button--focused {
+.button__play--focused {
     color: white;
     background-color: grey;
 }
 
-.progress-bar {
+.button__back {
     float: left;
     padding: 5px;
     border: 1px solid grey;
 }
 
-.progress-bar--focused {
+.button__back--focused {
     color: white;
     background-color: grey;
 }

@@ -7,15 +7,15 @@ const decorateClassName = (className, focused) => {
         : className;
 }
 
-export function ProgressBar({item, focused}) {
+export function BackButton({focused}) {
 
     return (
         <div
-            className={decorateClassName('progress-bar', focused)}
+            className={decorateClassName('button button__back', focused)}
         >
-            SCRUB
+            BACK
         </div>
     );
 }
 
-export default focusable(ProgressBar);
+export default focusable(BackButton);

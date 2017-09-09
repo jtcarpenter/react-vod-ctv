@@ -22,7 +22,7 @@ export function PlayButton({
 
     return (
         <div
-            className={decorateClassName('play-button', focused)}
+            className={decorateClassName('button button__play', focused)}
         >
             {playState}
         </div>
