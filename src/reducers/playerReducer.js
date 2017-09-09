@@ -4,6 +4,7 @@ import * as playerStates from '../constants/playerStates';
 const defaultState = {
     data: {
         id: null,
+        title: null,
         src: null
     },
     videoState: null
@@ -15,6 +16,7 @@ export default function playerReducer(state = defaultState, action) {
             return Object.assign({}, state, {
                 data: {
                     id: action.payload.id,
+                    title: action.payload.title,
                     src: action.payload.src
                 }
             });

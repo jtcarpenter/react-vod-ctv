@@ -3,9 +3,11 @@ import {shallow} from 'enzyme';
 import {PlayButtonContainer} from './PlayButtonContainer';
 
 const item = {data: {id: 1}};
+const playerState = {};
 const playButtonContainer = (
     <PlayButtonContainer
         item={item}
+        playerState={playerState}
     >
     </PlayButtonContainer>
 );

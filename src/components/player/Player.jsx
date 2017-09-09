@@ -11,12 +11,14 @@ export function Player({data, videoState, navItems}) {
 
     return (
         <div>
-            <span>[playing asset with id: {data.id}]</span>
             <Video
                 data={data}
                 videoState={videoState}
             />
             <div className="player-controls">
+                <div className="player-title">
+                    {data.title}
+                </div>
                 <BackButton
                     item={navItems[0]}
                 />

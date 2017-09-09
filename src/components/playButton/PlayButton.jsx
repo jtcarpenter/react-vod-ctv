@@ -2,9 +2,6 @@ import React from 'react';
 import focusable from '../../hocs/focusable.jsx';
 import * as playerStates from '../../constants/playerStates';
 
-const PLAY_TXT = 'PLAY';
-const PAUSE_TXT = 'PAUSE';
-
 const decorateClassName = (className, focused) => {
     return focused
         ? `${className} ${className}--focused`
@@ -16,15 +13,14 @@ export function PlayButton({
         focused
     }) {
 
-    const playState = videoState === playerStates.PLAYING
-        ? PAUSE_TXT
-        : PLAY_TXT;
+    const className = videoState === playerStates.PLAYING
+        ? 'icon-pause player-ctrl player-ctrl__play'
+        : 'icon-play player-ctrl player-ctrl__play'
 
     return (
         <div
-            className={decorateClassName('button button__play', focused)}
+            className={decorateClassName(className, focused)}
         >
-            {playState}
         </div>
     );
 }

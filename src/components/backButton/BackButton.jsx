@@ -11,9 +11,11 @@ export function BackButton({focused}) {
 
     return (
         <div
-            className={decorateClassName('button button__back', focused)}
+            className={decorateClassName(
+                'icon-arrow-left player-ctrl player-ctrl__back',
+                focused
+            )}
         >
-            BACK
         </div>
     );
 }
