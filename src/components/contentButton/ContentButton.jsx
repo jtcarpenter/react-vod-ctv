@@ -8,18 +8,12 @@ const decorateClassName = (className, focused) => {
         : className;
 }
 
-export function ContentButton({item, handleSelect, focused}) {
-
-    function handleClick() {
-        // @TODO:
-        handleSelect(item.id);
-    }
+export function ContentButton({item, focused}) {
 
     return (
         <Link to={`/player/${item.id}`}>
             <div
                 id={item.id}
-                onClick={handleClick}
                 className={decorateClassName('content-button', focused)}
             >
                 {item.title}

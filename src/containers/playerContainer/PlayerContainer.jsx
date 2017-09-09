@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Player from '../../components/player/Player.jsx';
-import {load, playVideo, pauseVideo} from '../../actions/playerActions';
+import {load} from '../../actions/playerActions';
 
 const navItems = [
     {
@@ -16,7 +16,7 @@ const navItems = [
             nextLeft: '0'
         }
     }
-]
+];
 
 export class PlayerContainer extends Component {
 
@@ -28,8 +28,6 @@ export class PlayerContainer extends Component {
         this.state = {
             willPlay: false
         }
-        this.handlePlay = this.handlePlay.bind(this);
-        this.handlePause = this.handlePause.bind(this);
     }
 
     render() {
@@ -39,20 +37,10 @@ export class PlayerContainer extends Component {
                 <Player
                     data={playerState.data}
                     videoState={playerState.videoState}
-                    handlePlay={this.handlePlay}
-                    handlePause={this.handlePause}
                     navItems={navItems}
                 />
             </div>
         )
-    }
-
-    handlePlay() {
-        this.props.playVideo();
-    }
-
-    handlePause() {
-        this.props.pauseVideo();
     }
 }
 
@@ -66,12 +54,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         load: (opts) => {
             dispatch(load(opts));
-        },
-        playVideo: () => {
-            dispatch(playVideo());
-        },
-        pauseVideo: () => {
-            dispatch(pauseVideo());
         }
     }
 };

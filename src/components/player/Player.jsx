@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import PlayButton from '../../components/playButton/PlayButton.jsx';
+import PlayButton from
+    '../../containers/playButtonContainer/PlayButtonContainer.jsx';
 import ProgressBar from '../../components/progressBar/ProgressBar.jsx';
 import Video from '../../containers/videoContainer/VideoContainer.jsx';
 
-export function Player({data, videoState, handlePlay, handlePause, navItems}) {
+export function Player({data, videoState, navItems}) {
 
     return (
         <div>
@@ -16,9 +17,6 @@ export function Player({data, videoState, handlePlay, handlePause, navItems}) {
             />
             <div className="player-controls">
                 <PlayButton
-                    handlePlay={handlePlay}
-                    handlePause={handlePause}
-                    videoState={videoState}
                     item={navItems[0]}
                 />
                 <ProgressBar
