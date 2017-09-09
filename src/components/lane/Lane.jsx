@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentButton from '../contentButton/ContentButton.jsx';
 
-export function Lane({data, handleSelect, currentFocus}) {
+export function Lane({data, handleSelect, currentFocus, initialFocusKey}) {
 
     const itemsLength = data.items.length;
     const focusedIndex = data.items.findIndex(
@@ -22,6 +22,7 @@ export function Lane({data, handleSelect, currentFocus}) {
                     index={index}
                     item={item}
                     handleSelect={handleSelect}
+                    initialFocus={item.nav.focusKey === initialFocusKey}
                 >
                 </ContentButton>
             )}

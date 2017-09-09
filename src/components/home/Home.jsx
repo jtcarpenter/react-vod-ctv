@@ -6,7 +6,8 @@ export function Home({
         laneData = {lanes: []},
         gridData = {items: []},
         handleSelect,
-        currentFocus
+        currentFocus,
+        initialFocusKey
     }) {
 
     return (
@@ -17,6 +18,7 @@ export function Home({
                     data={item}
                     handleSelect={handleSelect}
                     currentFocus={currentFocus}
+                    initialFocusKey={initialFocusKey}
                 />
             )}
                {/* <Grid

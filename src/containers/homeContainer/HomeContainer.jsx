@@ -119,6 +119,7 @@ export class HomeContainer extends Component {
                     gridData={gridData}
                     handleSelect={this.handleSelect}
                     currentFocus={focusState.currentFocus}
+                    initialFocusKey={'0'}
                 ></Home>
             </div>
         )

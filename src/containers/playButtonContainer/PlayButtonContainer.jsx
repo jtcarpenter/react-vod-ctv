@@ -23,6 +23,7 @@ export class PlayButtonContainer extends Component {
                 handlePause={this.handlePause}
                 handleSelect={this.handleSelect}
                 item={this.props.item}
+                initialFocus={this.props.initialFocus}
             />
         )
     }

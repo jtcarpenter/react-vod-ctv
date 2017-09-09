@@ -14,6 +14,14 @@ export class Focusable extends Component {
         this.props = props;
     }
 
+    componentDidMount() {
+        if (this.props.initialFocus) {
+            this.props.changeFocus(
+                this.props.item.nav.focusKey
+            );
+        }
+    }
+
     componentDidUpdate() {
         if (!this.props.item || !this.props.item.nav) {
             return false;
@@ -61,6 +69,7 @@ export class Focusable extends Component {
                     break;
             }
         }
+        return true;
     }
 
     render() {

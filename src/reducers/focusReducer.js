@@ -2,7 +2,7 @@ import * as focusTypes from '../constants/focusActionTypes';
 
 const defaultState = {
     // @TODO: This will be dependent on context
-    currentFocus: '0'
+    currentFocus: null
 }
 
 export default function keyReducer(state = defaultState, action) {

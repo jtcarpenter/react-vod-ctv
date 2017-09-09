@@ -18,6 +18,7 @@ export class BackButtonContainer extends Component {
             <BackButton
                 handleSelect={this.handleSelect}
                 item={this.props.item}
+                initialFocus={this.props.initialFocus}
             />
         )
     }
