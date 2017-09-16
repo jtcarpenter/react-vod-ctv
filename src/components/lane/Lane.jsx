@@ -3,12 +3,10 @@ import ContentButton from '../contentButton/ContentButton.jsx';
 
 export function Lane({data, handleSelect, currentFocus, initialFocusKey}) {
 
-    const itemsLength = data.items.length;
     const focusedIndex = data.items.findIndex(
         (item) => item.nav.focusKey === currentFocus
     );
     const style = {
-        width: itemsLength * 110,
         marginLeft: focusedIndex > -1
             ? -(focusedIndex * 110)
             : 0

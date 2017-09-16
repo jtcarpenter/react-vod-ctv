@@ -1,12 +1,36 @@
-$PLAYER_CONTROLS_WIDTH: 50px;
-$PLAYER_CONTROLS_HEIGHT: 50px;
-$PLAYER_CONTROLS_FG_COLOUR: #666;
-$PLAYER_CONTROLS_BG_COLOUR: transparent;
-$PLAYER_CONTROLS_FG_COLOUR_FOCUSED: white;
-$PLAYER_CONTROLS_BG_COLOUR_FOCUSED: black;
+$APP_WIDTH: 1280;
+$APP_HEIGHT: 720;
+$APP_BG_COLOUR: #000000;
+
+$LANE_MARGIN: 5;
+
+$CONTENT_BTN_HEIGHT: 250;
+$CONTENT_BTN_WIDTH: 250;
+$CONTENT_BTN_MARGIN: 5;
+
+$PLAYER_CTRLS_BG_COLOUR: rgba(0, 0, 0, 0.4);
+
+$PLAYER_CTRL_WIDTH: 50;
+$PLAYER_CTRL_HEIGHT: 50;
+$PLAYER_CTRL_FG_COLOUR: #888888;
+$PLAYER_CTRL_BG_COLOUR: transparent;
+$PLAYER_CTRL_FG_COLOUR_FOCUSED: #dddddd;
+$PLAYER_CTRL_BG_COLOUR_FOCUSED: #222222;
+$PLAYER_CTRL_BORDER_WIDTH: 0;
+$PLAYER_CTRL_GAP_WIDTH: 10;
 
 body {
     margin: 0;
+    overflow: hidden;
+}
+
+.app {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: $APP_WIDTH + px;
+    height: $APP_HEIGHT + px;
+    background-color: $APP_BG_COLOUR;
     overflow: hidden;
 }
 
@@ -18,10 +42,11 @@ body {
 }
 
 .content-button {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
+    width: $CONTENT_BTN_WIDTH + px;
+    height: $CONTENT_BTN_HEIGHT + px;
+    margin: $CONTENT_BTN_MARGIN + px;
     border: 1px solid #666;
+    border-radius: 5px;
     box-sizing: border-box;
     float: left;
 }
@@ -31,66 +56,80 @@ body {
 }
 
 .lane {
-    height: 110px;
-    margin: 5px;
+    height: $CONTENT_BTN_HEIGHT + ($CONTENT_BTN_MARGIN * 2) + px;
+    margin: $LANE_MARGIN + px;
     border: 1px dashed #666;
 }
 
-.player-controls {
+.player-ctrls {
     border: 1px dashed grey;
-    border-radius: 5%;
+    border-radius: 10px;
     overflow: hidden;
-    padding: 5px;
+    padding: 10px 0 15px 0;
     position: absolute;
-    top: 250px;
-    background-color: rgba(0, 0, 0, 0.4);
+    margin-left: 20px;
+    margin-right: 20px;
+    bottom: 25px;
+    width: $APP_WIDTH - (10 * 2) - (5 * 2) + px;
+    background-color: $PLAYER_CTRLS_BG_COLOUR;
 }
 
 .player-ctrl {
-    margin-right: 10px;
+    margin-right: $PLAYER_CTRL_GAP_WIDTH + px;
     float: left;
-    width: $PLAYER_CONTROLS_WIDTH;
-    height: $PLAYER_CONTROLS_HEIGHT;
-    color: $PLAYER_CONTROLS_FG_COLOUR;
-    background-color: $PLAYER_CONTROLS_BG_COLOUR;
+    width: $PLAYER_CTRL_WIDTH + px;
+    height: $PLAYER_CTRL_HEIGHT + px;
+    color: $PLAYER_CTRL_FG_COLOUR;
+    background-color: $PLAYER_CTRL_BG_COLOUR;
+    border: $PLAYER_CTRL_BORDER_WIDTH + px solid $PLAYER_CTRL_FG_COLOUR;
 }
 
 .player-ctrl:last-child {
     margin-right: 0;
 }
 
-.player-title {
+.player-ctrls-title {
     margin-left: 0;
     float: none;
     display: block;
     font-size: 30px;
-    color: $PLAYER_CONTROLS_BG_COLOUR_FOCUSED;
-    margin-bottom: 5px;
+    color: $PLAYER_CTRL_BG_COLOUR_FOCUSED;
+    margin-bottom: 10px;
     height: auto;
     width: 100%;
+    text-align: center;
+}
+
+.player-ctrls-btns {
+    text-align: center;
+    width: (
+        $PLAYER_CTRL_WIDTH * 2 +
+        ($PLAYER_CTRL_BORDER_WIDTH * 4) +
+        ($PLAYER_CTRL_GAP_WIDTH * 1) +
+        px
+    );
+    margin: 0 auto;
 }
 
 .player-ctrl__play {
     border-radius: 50%;
-    border: 2px solid $PLAYER_CONTROLS_FG_COLOUR;
+    border-color: none;
 }
 
 .player-ctrl__play--focused {
-    color: $PLAYER_CONTROLS_FG_COLOUR_FOCUSED;
-    background-color: $PLAYER_CONTROLS_BG_COLOUR_FOCUSED;
-    border-color: $PLAYER_CONTROLS_BG_COLOUR_FOCUSED;
+    color: $PLAYER_CTRL_FG_COLOUR_FOCUSED;
+    background-color: $PLAYER_CTRL_BG_COLOUR_FOCUSED;
+    border-color: $PLAYER_CTRL_BG_COLOUR_FOCUSED;
 }
 
 .player-ctrl__back {
-    border-radius: 10%;
-    border: 2px solid $PLAYER_CONTROLS_FG_COLOUR;
-    padding-right: 10%;
+    border-radius: 10px;
 }
 
 .player-ctrl__back--focused {
-    color: $PLAYER_CONTROLS_FG_COLOUR_FOCUSED;
-    background-color: $PLAYER_CONTROLS_BG_COLOUR_FOCUSED;
-    border-color: $PLAYER_CONTROLS_BG_COLOUR_FOCUSED;
+    color: $PLAYER_CTRL_FG_COLOUR_FOCUSED;
+    background-color: $PLAYER_CTRL_BG_COLOUR_FOCUSED;
+    border-color: $PLAYER_CTRL_BG_COLOUR_FOCUSED;
 }
 
 @font-face {
@@ -117,7 +156,7 @@ body {
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: $PLAYER_CONTROLS_HEIGHT;
+    font-size: $PLAYER_CTRL_HEIGHT + px;
 }
 
 .icon-play:before {

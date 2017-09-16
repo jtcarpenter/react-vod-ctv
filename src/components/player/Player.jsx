@@ -15,17 +15,19 @@ export function Player({data, videoState, navItems}) {
                 data={data}
                 videoState={videoState}
             />
-            <div className="player-controls">
-                <div className="player-title">
+            <div className="player-ctrls">
+                <div className="player-ctrls-title">
                     {data.title}
                 </div>
-                <BackButton
-                    item={navItems[0]}
-                />
-                <PlayButton
-                    item={navItems[1]}
-                    initialFocus="true"
-                />
+                <div className="player-ctrls-btns">
+                    <BackButton
+                        item={navItems[0]}
+                    />
+                    <PlayButton
+                        item={navItems[1]}
+                        initialFocus="true"
+                    />
+                </div>
             </div>
         </div>
     )

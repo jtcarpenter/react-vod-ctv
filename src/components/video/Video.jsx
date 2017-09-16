@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import * as playerStates from '../../constants/playerStates';
+import * as appDimensions from '../../constants/dimensions';
 
 const VIDEO_REF = 'VIDEO_REF';
 
@@ -30,6 +31,9 @@ export class Video extends Component {
         }
         return (
             <video
+                width={appDimensions.APP_WIDTH}
+                height={appDimensions.APP_HEIGHT}
+                class="video"
                 ref={VIDEO_REF}
                 src={data.src}
                 onPlay={this.props.onDidPlay}
