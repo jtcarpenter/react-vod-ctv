@@ -19,6 +19,14 @@ $PLAYER_CTRL_BG_COLOUR_FOCUSED: #222222;
 $PLAYER_CTRL_BORDER_WIDTH: 0;
 $PLAYER_CTRL_GAP_WIDTH: 10;
 
+:export {
+    APP_WIDTH: $APP_WIDTH;
+    APP_HEIGHT: $APP_HEIGHT;
+    CONTENT_BTN_HEIGHT: $CONTENT_BTN_HEIGHT;
+    CONTENT_BTN_WIDTH: $CONTENT_BTN_WIDTH;
+    CONTENT_BTN_MARGIN: $CONTENT_BTN_MARGIN;
+}
+
 body {
     margin: 0;
     overflow: hidden;
@@ -32,13 +40,6 @@ body {
     height: $APP_HEIGHT + px;
     background-color: $APP_BG_COLOUR;
     overflow: hidden;
-}
-
-.grid-row {
-    width: 330px;
-    height: 110px;
-    margin: 5px;
-    border: 1px dashed #666;
 }
 
 .content-button {

@@ -1,10 +1,8 @@
 import React from 'react';
-import Grid from '../grid/Grid.jsx';
 import Lane from '../lane/Lane.jsx';
 
 export function Home({
         laneData = {lanes: []},
-        gridData = {items: []},
         handleSelect,
         currentFocus,
         initialFocusKey
@@ -12,21 +10,17 @@ export function Home({
 
     return (
         <div className="home">
-            {laneData.lanes.map((item, index) =>
-                <Lane
-                    key={index}
-                    data={item}
-                    handleSelect={handleSelect}
-                    currentFocus={currentFocus}
-                    initialFocusKey={initialFocusKey}
-                />
-            )}
-               {/* <Grid
-                cols={gridData.cols}
-                data={gridData}
-                handleSelect={handleSelect}
-                currentFocus={currentFocus}
-            /> */}
+            {
+                laneData.lanes.map((item, index) =>
+                    <Lane
+                        key={index}
+                        data={item}
+                        handleSelect={handleSelect}
+                        currentFocus={currentFocus}
+                        initialFocusKey={initialFocusKey}
+                    />
+                )
+            }
         </div>
     )
 }

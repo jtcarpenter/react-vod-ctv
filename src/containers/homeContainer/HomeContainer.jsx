@@ -13,43 +13,6 @@ export class HomeContainer extends Component {
         this.props.load();
     }
 
-    parseGrid(data, cols) {
-        return Object.assign({}, data, {
-            items: data.items.map((datum, index) => {
-                return Object.assign({}, datum, {
-                    nav: {
-                        focusKey: index.toString(),
-                        nextRight: (
-                            Math.min(
-                                index + 1,
-                                data.items.length - 1
-                            )
-                        ).toString(),
-                        nextLeft: (
-                            Math.max(
-                                index - 1,
-                                0
-                            )
-                        ).toString(),
-                        nextUp: (
-                            Math.max(
-                                index - cols,
-                                0
-                            )
-                        ).toString(),
-                        nextDown: (
-                            Math.min(
-                                index + cols,
-                                data.items.length - 1
-                            )
-                        ).toString()
-                    }
-                });
-            }),
-            cols
-        })
-    }
-
     parseCategories(data) {
         // @TODO: give categories to data
         const categories = [
@@ -109,14 +72,12 @@ export class HomeContainer extends Component {
 
     render() {
         const {homeState, focusState} = this.props;
-        const gridData = this.parseGrid(homeState.data, homeState.cols);
         const laneData = this.parseCategories(homeState.data);
 
         return (
             <div>
                 <Home
                     laneData={laneData}
-                    gridData={gridData}
                     handleSelect={this.handleSelect}
                     currentFocus={focusState.currentFocus}
                     initialFocusKey={'0'}

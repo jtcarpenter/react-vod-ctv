@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentButton from '../contentButton/ContentButton.jsx';
+import styles from '../../index.scss';
 
 export function Lane({data, handleSelect, currentFocus, initialFocusKey}) {
 
@@ -8,7 +9,10 @@ export function Lane({data, handleSelect, currentFocus, initialFocusKey}) {
     );
     const style = {
         marginLeft: focusedIndex > -1
-            ? -(focusedIndex * 110)
+            ? -(focusedIndex * (
+                parseInt(styles.CONTENT_BTN_WIDTH, 10) +
+                (parseInt(styles.CONTENT_BTN_MARGIN, 10) * 2))
+            )
             : 0
     }
 
