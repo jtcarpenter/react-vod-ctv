@@ -1,5 +1,5 @@
 import React from 'react';
-import Lane from '../lane/Lane.jsx';
+import Lane from '../../containers/laneContainer/LaneContainer.jsx';
 import styles from '../../index.scss';
 
 export function Home({
@@ -33,6 +33,7 @@ export function Home({
                         handleSelect={handleSelect}
                         currentFocus={currentFocus}
                         initialFocusKey={initialFocusKey}
+                        isCurrentFocus={index === focusedLaneIndex}
                     />
                 )
             }
