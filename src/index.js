@@ -5,7 +5,6 @@ import Player from './containers/playerContainer/PlayerContainer.jsx';
 import {Provider} from 'react-redux';
 import appStore from './store/appStore';
 import {Route, BrowserRouter, HashRouter, Switch} from 'react-router-dom';
-import indexCss from './index.scss';
 import KeyHandler from './components/keyHandler/KeyHandler.jsx';
 
 ReactDOM.render(
