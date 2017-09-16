@@ -8,15 +8,16 @@ export function Lane({data, handleSelect, currentFocus, initialFocusKey}) {
         (item) => item.nav.focusKey === currentFocus
     );
     const offset = (focusedIndex && focusedIndex > 0)
-    ? parseInt(styles.CONTENT_BTN_WIDTH, 10) / 2
-    : 0;
+        ? parseInt(styles.CONTENT_BTN_WIDTH, 10) / 2
+        : 0;
+    const marginLeft = focusedIndex > -1
+        ? -((focusedIndex * (
+            parseInt(styles.CONTENT_BTN_WIDTH, 10) +
+            (parseInt(styles.CONTENT_BTN_MARGIN, 10) * 2))
+        ) - offset)
+        : 0;
     const style = {
-        marginLeft: focusedIndex > -1
-            ? -((focusedIndex * (
-                parseInt(styles.CONTENT_BTN_WIDTH, 10) +
-                (parseInt(styles.CONTENT_BTN_MARGIN, 10) * 2))
-            ) - offset)
-            : 0
+        marginLeft
     }
 
     return (

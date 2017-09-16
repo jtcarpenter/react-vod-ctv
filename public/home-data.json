@@ -3,52 +3,61 @@
     {
       "id": 0,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_0 item_0 Big Bunny"
+      "title": "item_0 item_0 Big Bunny",
+      "category": "one"
     },
     {
       "id": 1,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_1"
+      "title": "item_1",
+      "category": "one"
     },
     {
       "id": 2,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_2"
+      "title": "item_2",
+      "category": "one"
     },
     {
       "id": 3,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_3"
+      "title": "item_3",
+      "category": "one"
     },
     {
       "id": 4,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_4"
+      "title": "item_4",
+      "category": "two"
     },
     {
       "id": 5,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_5"
+      "title": "item_5",
+      "category": "two"
     },
     {
       "id": 6,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_6"
+      "title": "item_6",
+      "category": "three"
     },
     {
       "id": 7,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_7"
+      "category": "three"
     },
     {
       "id": 8,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_8"
+      "title": "item_8",
+      "category": "three"
     },
     {
       "id": 9,
       "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
-      "title": "item_9"
+      "title": "item_9",
+      "category": "three"
     }
   ]
 }

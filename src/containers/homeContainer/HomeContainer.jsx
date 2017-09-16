@@ -4,6 +4,17 @@ import Home from '../../components/home/Home.jsx';
 import {load} from '../../actions/homeActions';
 import {withRouter} from 'react-router-dom';
 
+export function getFocusedLaneIndex(lanes, focusKey) {
+    for (let i = 0, l = lanes.length; i < l; i += 1) {
+        for (let j = 0, m = lanes[i].items.length; j < m; j += 1) {
+            if (focusKey === lanes[i].items[j].nav.focusKey) {
+                return i;
+            }
+        }
+    }
+    return 0
+}
+
 export class HomeContainer extends Component {
 
     constructor(props) {
@@ -11,15 +22,21 @@ export class HomeContainer extends Component {
         this.handleSelect = this.handleSelect.bind(this);
         this.props = props;
         this.props.load();
+        this.lastFocus = null;
     }
 
     parseCategories(data) {
-        // @TODO: give categories to data
-        const categories = [
-            {items: data.items.slice(0, 4)},
-            {items: data.items.slice(4, 6)},
-            {items: data.items.slice(6)}
-        ];
+        const categoryTypes = [];
+        const categories = [];
+        for (let i = 0, l = data.items.length; i < l; i += 1) {
+            const categoryIndex = categoryTypes.indexOf(data.items[i].category);
+            if (categoryIndex === -1) {
+                categories.push({items: [data.items[i]]});
+                categoryTypes.push(data.items[i].category);
+            } else {
+                categories[categoryIndex].items.push(data.items[i]);
+            }
+        }
 
         const lanes = [];
         let i = null;
@@ -71,8 +88,12 @@ export class HomeContainer extends Component {
     }
 
     render() {
-        const {homeState, focusState} = this.props;
+        const {focusState, homeState} = this.props;
         const laneData = this.parseCategories(homeState.data);
+        const focusedLaneIndex = getFocusedLaneIndex(
+            laneData.lanes,
+            focusState.currentFocus
+        );
 
         return (
             <div>
@@ -80,6 +101,7 @@ export class HomeContainer extends Component {
                     laneData={laneData}
                     handleSelect={this.handleSelect}
                     currentFocus={focusState.currentFocus}
+                    focusedLaneIndex={focusedLaneIndex}
                     initialFocusKey={'0'}
                 ></Home>
             </div>
