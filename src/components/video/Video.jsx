@@ -33,7 +33,7 @@ export class Video extends Component {
             <video
                 width={styles.APP_WIDTH}
                 height={styles.APP_HEIGHT}
-                class="video"
+                className="video"
                 ref={VIDEO_REF}
                 src={data.src}
                 onPlay={this.props.onDidPlay}
