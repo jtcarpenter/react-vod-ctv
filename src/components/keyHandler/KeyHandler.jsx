@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {keyPressed} from '../../actions/keyActions';
 import {keys} from '../../constants/keys';
-import {Route, BrowserRouter, HashRouter, Switch} from 'react-router-dom';
 
 export class KeyHandler extends Component {
 
