@@ -4,6 +4,7 @@ import Home from 'components/home/Home.jsx';
 import {load} from 'actions/homeActions';
 import {withRouter} from 'react-router-dom';
 import * as keyTypes from 'constants/keyTypes';
+import exitable from 'PLATFORM/hocs/exitable.jsx';
 
 export function getFocusedLaneIndex(lanes, focusKey) {
     for (let i = 0, l = lanes.length; i < l; i += 1) {
@@ -126,8 +127,9 @@ export class HomeContainer extends Component {
     }
 
     exit() {
-        // @TODO: This is firetv specific, different on other platforms
-        window.open('', '_self').close();
+        if (this.props.exit) {
+            this.props.exit();
+        }
     }
 
     render() {
@@ -177,5 +179,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+    connect(mapStateToProps, mapDispatchToProps)(exitable(HomeContainer))
 );

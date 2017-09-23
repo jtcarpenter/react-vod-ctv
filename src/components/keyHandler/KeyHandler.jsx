@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {keyPressed} from 'actions/keyActions';
 import {keys} from 'PLATFORM/constants/keys';
+import * as keyTypes from 'constants/keyTypes';
 
 export class KeyHandler extends Component {
 
@@ -23,11 +24,12 @@ export class KeyHandler extends Component {
             this.props.keyPressed(event);
         }, false);
 
-        // @TODO: This is firetv specific, different on other platforms
         window.addEventListener('popstate', () => {
             if (window.history.state !== 'backhandler') {
                 const event = new document.defaultView.CustomEvent('keydown');
-                event.keyCode = 8;
+                event.keyCode = Object
+                    .keys(keys)
+                    .find((key) => keys[key] === keyTypes.KEY_BACK);
                 window.dispatchEvent(event);
 
                 window.history.pushState('backhandler', null, null);
