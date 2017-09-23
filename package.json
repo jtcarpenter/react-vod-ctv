@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback",
+    "start:firetv": "PLATFORM=firetv webpack-dev-server --history-api-fallback",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
@@ -46,8 +47,11 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|less|scss)$": "identity-obj-proxy"
+      "\\.(css|less|scss)$": "identity-obj-proxy",
+      "^PLATFORM(.*)$": "platforms/desktop$1"
     },
-    "modulePaths": ["src"]
+    "modulePaths": [
+      "src"
+    ]
   }
 }

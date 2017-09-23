@@ -5,6 +5,9 @@
         "jest/globals": true,
         "node": true
     },
+    "globals": {
+        "PLATFORM": true
+    },
     "extends": ["eslint:recommended", "plugin:jest/recommended"],
     "parserOptions": {
         "ecmaFeatures": {
@@ -152,7 +155,7 @@
         "no-param-reassign": "error",
         "no-path-concat": "error",
         "no-plusplus": "error",
-        "no-process-env": "error",
+        "no-process-env": "off",
         "no-process-exit": "error",
         "no-proto": "error",
         "no-prototype-builtins": "error",

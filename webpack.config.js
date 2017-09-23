@@ -1,8 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 const PATHS = {
     app: path.join(__dirname, 'src/'),
     public: path.join(__dirname, 'public')
 };
+const PLATFORM = process.env.PLATFORM
+    ? process.env.PLATFORM
+    : 'desktop';
 
 module.exports = {
     entry: {
@@ -16,7 +20,10 @@ module.exports = {
         modules: [
             path.resolve('./src'),
             path.resolve('./node_modules')
-        ]
+        ],
+        alias: {
+            PLATFORM: `platforms/${PLATFORM}`
+        }
     },
     devtool: 'eval-source-map',
     devServer: {
@@ -44,5 +51,10 @@ module.exports = {
                 include: `${__dirname}/src`
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            PLATFORM: JSON.stringify(PLATFORM)
+        })
+    ]
 }
