@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {changeFocus} from '../actions/focusActions';
-import * as keys from '../constants/keys';
+import * as keyTypes from '../constants/keyTypes';
 
 const isFocused = (focusKey, focusState) => {
     return focusKey.toString() === focusState.currentFocus
@@ -32,33 +32,33 @@ export class Focusable extends Component {
         );
         if (focused && this.props.keyState.lastKeyPressed) {
             switch (this.props.keyState.lastKeyPressed.keyType) {
-                case keys.KEY_RIGHT:
+                case keyTypes.KEY_RIGHT:
                     if (this.props.item.nav.nextRight) {
                         this.props.changeFocus(
                             this.props.item.nav.nextRight
                         );
                     }
                     break;
-                case keys.KEY_LEFT:
+                case keyTypes.KEY_LEFT:
                         this.props.changeFocus(
                             this.props.item.nav.nextLeft
                         );
                     break;
-                case keys.KEY_UP:
+                case keyTypes.KEY_UP:
                     if (this.props.item.nav.nextUp) {
                         this.props.changeFocus(
                             this.props.item.nav.nextUp
                         );
                     }
                     break;
-                case keys.KEY_DOWN:
+                case keyTypes.KEY_DOWN:
                     if (this.props.item.nav.nextDown) {
                         this.props.changeFocus(
                             this.props.item.nav.nextDown
                         );
                     }
                     break;
-                case keys.KEY_OK:
+                case keyTypes.KEY_OK:
                     if (this.props.handleSelect) {
                         this.props.handleSelect(
                             this.props.item.nav.focusKey

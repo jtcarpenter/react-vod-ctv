@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Player from '../../components/player/Player.jsx';
-import {load} from '../../actions/playerActions';
+import {load, playVideo, pauseVideo} from '../../actions/playerActions';
+import * as keyTypes from '../../constants/keyTypes';
+import * as playerStates from '../../constants/playerStates';
 
 const navItems = [
     {
@@ -30,6 +32,34 @@ export class PlayerContainer extends Component {
         }
     }
 
+    componentDidUpdate() {
+        const {lastKeyPressed} = this.props.keyState;
+        const {videoState} = this.props.playerState;
+        if (lastKeyPressed) {
+            switch (lastKeyPressed.keyType) {
+                case keyTypes.KEY_PLAY:
+                    if (videoState !== playerStates.PLAYING) {
+                        this.props.playVideo();
+                    }
+                    break;
+                case keyTypes.KEY_PAUSE:
+                    if (videoState === playerStates.PLAYING) {
+                        this.props.pauseVideo()
+                    }
+                    break;
+                case keyTypes.KEY_PLAY_PAUSE:
+                    if (videoState === playerStates.PLAYING) {
+                        this.props.pauseVideo();
+                    } else {
+                        this.props.playVideo();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     render() {
         const {playerState} = this.props;
         return (
@@ -46,7 +76,8 @@ export class PlayerContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        playerState: state.playerReducer
+        playerState: state.playerReducer,
+        keyState: state.keyReducer,
     };
 };
 
@@ -54,6 +85,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         load: (opts) => {
             dispatch(load(opts));
+        },
+        playVideo: () => {
+            dispatch(playVideo());
+        },
+        pauseVideo: () => {
+            dispatch(pauseVideo());
         }
     }
 };

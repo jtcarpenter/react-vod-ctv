@@ -1,0 +1,1 @@
+export const FIRETV_REGPEXP = /aft/;
