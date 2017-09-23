@@ -6,3 +6,4 @@ export const KEY_OK = 'KEY_OK';
 export const KEY_PLAY = 'KEY_PLAY';
 export const KEY_PAUSE = 'KEY_PAUSE';
 export const KEY_PLAY_PAUSE = 'KEY_PLAY_PAUSE';
+export const KEY_BACK = 'KEY_BACK';

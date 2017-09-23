@@ -36,6 +36,7 @@ export class HomeContainer extends Component {
     constructor(props) {
         super();
         this.handleSelect = this.handleSelect.bind(this);
+        this.exit = this.exit.bind(this);
         this.props = props;
         this.props.load();
         this.lastLaneFocusKeys = [];
@@ -100,7 +101,39 @@ export class HomeContainer extends Component {
         return {lanes};
     }
 
+    componentDidUpdate() {
+        const {lastKeyPressed} = this.props.keyState;
+        if (lastKeyPressed) {
+            switch (lastKeyPressed.keyType) {
+                case keyTypes.KEY_BACK:
+                    if (this.state && this.state.back) {
+                        this.setState({back: false});
+                    } else {
+                        this.setState({back: true});
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    shouldComponentUpdate() {
+        if (this.state && this.state.back) {
+            return false;
+        }
+        return true;
+    }
+
+    exit() {
+        // @TODO: This is firetv specific, different on other platforms
+        window.open('', '_self').close();
+    }
+
     render() {
+        if (this.state && this.state.back) {
+            this.exit();
+        }
         const {focusState, homeState} = this.props;
         const laneData = this.parseIntoLanes(homeState.data);
         const focusedLaneIndex = getFocusedLaneIndex(
@@ -130,7 +163,8 @@ export class HomeContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         homeState: state.homeReducer,
-        focusState: state.focusReducer
+        focusState: state.focusReducer,
+        keyState: state.keyReducer,
     };
 };
 

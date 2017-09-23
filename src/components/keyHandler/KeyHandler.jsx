@@ -8,25 +8,32 @@ export class KeyHandler extends Component {
     constructor(props) {
         super();
         this.props = props;
-        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     render() {
         return (
-            <div onKeyDown={this.handleKeyDown}>
+            <div>
                 {this.props.children}
             </div>
         )
     }
 
-    handleKeyDown(event) {
-        this.props.dispatch(keyPressed(keys[event.keyCode]));
-    }
-
     componentDidMount() {
-        window.addEventListener('keyup', (event) => {
+        window.addEventListener('keydown', (event) => {
             this.props.keyPressed(event);
+        }, false);
+
+        // @TODO: This is firetv specific, different on other platforms
+        window.addEventListener('popstate', () => {
+            if (window.history.state !== 'backhandler') {
+                const event = new document.defaultView.CustomEvent('keydown');
+                event.keyCode = 8;
+                window.dispatchEvent(event);
+
+                window.history.pushState('backhandler', null, null);
+            }
         });
+        window.history.pushState('backhandler', null, null);
     }
 }
 

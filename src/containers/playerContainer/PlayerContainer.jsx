@@ -55,6 +55,9 @@ export class PlayerContainer extends Component {
                         this.props.playVideo();
                     }
                     break;
+                case keyTypes.KEY_BACK:
+                    this.setState({back: true});
+                    break;
                 default:
                     break;
             }
@@ -62,6 +65,9 @@ export class PlayerContainer extends Component {
     }
 
     render() {
+        if (this.state && this.state.back) {
+            return <Redirect push to="/" />
+        }
         const {playerState} = this.props;
         return (
             <div>

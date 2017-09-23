@@ -8,5 +8,6 @@ export const keys = {
     13: keyTypes.KEY_OK, // Enter
     80: keyTypes.KEY_PLAY, // P
     79: keyTypes.KEY_PAUSE, // O
-    32: keyTypes.KEY_PLAY_PAUSE // Space
+    32: keyTypes.KEY_PLAY_PAUSE, // Space
+    8: keyTypes.KEY_BACK // Backspace
 }
