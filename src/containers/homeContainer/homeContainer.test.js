@@ -4,7 +4,7 @@ import {
     HomeContainer,
     getFocusedLaneIndex,
     parseIntoCategories
-} from './HomeContainer';
+} from 'containers/homeContainer/HomeContainer';
 
 const homeData = {
     data: {

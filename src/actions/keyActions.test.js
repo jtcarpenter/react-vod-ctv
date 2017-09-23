@@ -1,5 +1,5 @@
-import * as actions from './keyActions'
-import * as types from '../constants/keyActionTypes'
+import * as actions from 'actions/keyActions'
+import * as types from 'constants/keyActionTypes'
 
 const keyType = 'testKey';
 const keyData = {keyType};

@@ -1,5 +1,5 @@
-import * as playerTypes from '../constants/playerActionTypes';
-import * as playerStates from '../constants/playerStates';
+import * as playerTypes from 'constants/playerActionTypes';
+import * as playerStates from 'constants/playerStates';
 
 const defaultState = {
     data: {

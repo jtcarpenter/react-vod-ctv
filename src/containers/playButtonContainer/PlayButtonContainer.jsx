@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import PlayButton from '../../components/playButton/PlayButton.jsx';
-import {playVideo, pauseVideo} from '../../actions/playerActions';
-import * as playerStates from '../../constants/playerStates';
+import PlayButton from 'components/playButton/PlayButton.jsx';
+import {playVideo, pauseVideo} from 'actions/playerActions';
+import * as playerStates from 'constants/playerStates';
 
 export class PlayButtonContainer extends Component {
 

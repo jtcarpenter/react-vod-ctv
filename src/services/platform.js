@@ -1,5 +1,5 @@
-import * as platformIds from '../constants/platformIds';
-import * as platformRegExp from '../constants/platformRegExp';
+import * as platformIds from 'constants/platformIds';
+import * as platformRegExp from 'constants/platformRegExp';
 
 export const getId = (ua) => {
     const matches = [];

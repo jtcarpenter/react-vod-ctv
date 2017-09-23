@@ -1,4 +1,4 @@
-import * as keyTypes from '../constants/keyActionTypes';
+import * as keyTypes from 'constants/keyActionTypes';
 
 const defaultState = {
     lastKeyPressed: null

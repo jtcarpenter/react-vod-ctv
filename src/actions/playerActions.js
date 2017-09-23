@@ -1,4 +1,4 @@
-import * as types from '../constants/playerActionTypes';
+import * as types from 'constants/playerActionTypes';
 
 export function load(payload) {
     return {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import * as playerStates from '../../constants/playerStates';
-import styles from '../../index.scss'
+import * as playerStates from 'constants/playerStates';
+import styles from 'index.scss'
 
 const VIDEO_REF = 'VIDEO_REF';
 

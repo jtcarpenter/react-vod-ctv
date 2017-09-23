@@ -1,4 +1,4 @@
-import * as keyTypes from '../../../constants/keyTypes';
+import * as keyTypes from 'constants/keyTypes';
 
 export const keys = {
     37: keyTypes.KEY_LEFT,

@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import {ContentButton} from './ContentButton';
+import {ContentButton} from 'components/contentButton/ContentButton';
 import {MemoryRouter} from 'react-router-dom';
 
 const contentButtonData = {

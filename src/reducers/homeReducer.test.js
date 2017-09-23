@@ -1,5 +1,5 @@
-import homeReducer from './homeReducer'
-import * as homeTypes from '../constants/homeActionTypes'
+import homeReducer from 'reducers/homeReducer'
+import * as homeTypes from 'constants/homeActionTypes'
 
 const state = {
     data: {

@@ -1,4 +1,4 @@
-import * as focusTypes from '../constants/focusActionTypes';
+import * as focusTypes from 'constants/focusActionTypes';
 
 export function changeFocus(focusKey) {
     return {

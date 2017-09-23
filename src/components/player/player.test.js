@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {Player} from './Player';
+import {Player} from 'components/player/Player';
 
 const playerData = {
     id: 1,

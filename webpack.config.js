@@ -12,6 +12,12 @@ module.exports = {
         path: PATHS.public,
         filename: 'bundle.js'
     },
+    resolve: {
+        modules: [
+            path.resolve('./src'),
+            path.resolve('./node_modules')
+        ]
+    },
     devtool: 'eval-source-map',
     devServer: {
         inline: true,

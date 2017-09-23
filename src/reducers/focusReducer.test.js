@@ -1,5 +1,5 @@
-import focusReducer from './focusReducer'
-import * as focusTypes from '../constants/focusActionTypes'
+import focusReducer from 'reducers/focusReducer'
+import * as focusTypes from 'constants/focusActionTypes'
 
 const focusKey = 'testKey';
 const state = {

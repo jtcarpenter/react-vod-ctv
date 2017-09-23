@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Player from '../../components/player/Player.jsx';
-import {load, playVideo, pauseVideo} from '../../actions/playerActions';
-import * as keyTypes from '../../constants/keyTypes';
-import * as playerStates from '../../constants/playerStates';
+import {Redirect} from 'react-router-dom';
+import Player from 'components/player/Player.jsx';
+import {load, playVideo, pauseVideo} from 'actions/playerActions';
+import * as keyTypes from 'constants/keyTypes';
+import * as playerStates from 'constants/playerStates';
 
 const navItems = [
     {

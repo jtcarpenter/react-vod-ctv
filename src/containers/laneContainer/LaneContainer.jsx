@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Lane from '../../components/lane/Lane.jsx';
+import Lane from 'components/lane/Lane.jsx';
 
 export class LaneContainer extends Component {
 

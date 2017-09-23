@@ -1,6 +1,6 @@
-import playerReducer from './playerReducer';
-import * as types from '../constants/playerActionTypes';
-import * as playerStates from '../constants/playerStates';
+import playerReducer from 'reducers/playerReducer';
+import * as types from 'constants/playerActionTypes';
+import * as playerStates from 'constants/playerStates';
 
 const state = {
     data: {

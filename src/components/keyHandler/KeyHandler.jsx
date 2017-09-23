@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {keyPressed} from '../../actions/keyActions';
-import {keys} from '../../constants/keys';
+import {keyPressed} from 'actions/keyActions';
+import {keys} from 'constants/keys';
 
 export class KeyHandler extends Component {
 

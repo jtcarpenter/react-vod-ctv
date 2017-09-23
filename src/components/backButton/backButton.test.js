@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {BackButton} from './BackButton';
+import {BackButton} from 'components/backButton/BackButton';
 
 const player = (
     <BackButton />

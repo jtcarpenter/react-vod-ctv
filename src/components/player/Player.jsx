@@ -1,11 +1,11 @@
 import React from
     'react';
 import PlayButton from
-    '../../containers/playButtonContainer/PlayButtonContainer.jsx';
+    'containers/playButtonContainer/PlayButtonContainer.jsx';
 import BackButton from
-    '../../containers/backButtonContainer/BackButtonContainer.jsx';
+    'containers/backButtonContainer/BackButtonContainer.jsx';
 import Video from
-    '../../containers/videoContainer/VideoContainer.jsx';
+    'containers/videoContainer/VideoContainer.jsx';
 
 export function Player({data, videoState, navItems}) {
 

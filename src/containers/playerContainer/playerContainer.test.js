@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {PlayerContainer} from './PlayerContainer';
+import {PlayerContainer} from 'containers/playerContainer/PlayerContainer';
 
 const playerData = {data: {id: 1}};
 const mockLoad = () => ({});

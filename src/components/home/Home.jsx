@@ -1,6 +1,6 @@
 import React from 'react';
-import Lane from '../../containers/laneContainer/LaneContainer.jsx';
-import styles from '../../index.scss';
+import Lane from 'containers/laneContainer/LaneContainer.jsx';
+import styles from 'index.scss';
 
 export function Home({
         laneData = {lanes: []},

@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {BackButtonContainer} from './BackButtonContainer';
+import {BackButtonContainer} from
+    'containers/backButtonContainer/BackButtonContainer';
 
 const item = {data: {id: 1}};
 const backButtonContainer = (

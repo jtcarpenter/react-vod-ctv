@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {PlayButton} from './PlayButton';
+import {PlayButton} from 'components/playButton/PlayButton';
 
 const handlePlay = () => {};
 const handlePause = () => {};

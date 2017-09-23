@@ -1,6 +1,6 @@
 import React from 'react';
-import ContentButton from '../contentButton/ContentButton.jsx';
-import styles from '../../index.scss';
+import ContentButton from 'components/contentButton/ContentButton.jsx';
+import styles from 'index.scss';
 
 export function Lane({data, handleSelect, currentFocus, initialFocusKey}) {
 

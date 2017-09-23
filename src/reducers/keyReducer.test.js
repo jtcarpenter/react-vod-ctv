@@ -1,5 +1,5 @@
-import keyReducer from './keyReducer'
-import * as keyTypes from '../constants/keyActionTypes'
+import keyReducer from 'reducers/keyReducer'
+import * as keyTypes from 'constants/keyActionTypes'
 
 const keyType = 'testKey';
 const state = {

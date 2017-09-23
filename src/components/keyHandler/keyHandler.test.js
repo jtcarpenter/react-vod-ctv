@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {KeyHandler} from './KeyHandler';
+import {KeyHandler} from 'components/keyHandler/KeyHandler';
 
 const keyHandler = (
     <KeyHandler>

@@ -1,5 +1,5 @@
-import {getId} from './platform';
-import * as platformIds from '../constants/platformIds';
+import {getId} from 'services/platform';
+import * as platformIds from 'constants/platformIds';
 
 const firetvUserAgent = `\
     Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; AFTB Build/JDQ39) \

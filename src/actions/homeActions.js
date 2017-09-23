@@ -1,4 +1,4 @@
-import * as homeTypes from '../constants/homeActionTypes';
+import * as homeTypes from 'constants/homeActionTypes';
 
 export function load() {
     return {

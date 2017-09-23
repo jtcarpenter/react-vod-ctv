@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {shallow} from 'enzyme';
-import {Focusable} from './focusable';
+import {Focusable} from 'hocs/focusable';
 
 class Dummy extends Component {
     render() {

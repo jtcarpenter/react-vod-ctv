@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {LaneContainer} from './LaneContainer';
+import {LaneContainer} from 'containers/laneContainer/LaneContainer';
 
 const laneContainer = (
     <LaneContainer

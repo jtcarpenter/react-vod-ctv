@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Home from '../../components/home/Home.jsx';
-import {load} from '../../actions/homeActions';
+import Home from 'components/home/Home.jsx';
+import {load} from 'actions/homeActions';
 import {withRouter} from 'react-router-dom';
+import * as keyTypes from 'constants/keyTypes';
 
 export function getFocusedLaneIndex(lanes, focusKey) {
     for (let i = 0, l = lanes.length; i < l; i += 1) {

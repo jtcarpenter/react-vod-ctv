@@ -1,5 +1,5 @@
-import * as actions from './homeActions'
-import * as homeTypes from '../constants/homeActionTypes'
+import * as actions from 'actions/homeActions'
+import * as homeTypes from 'constants/homeActionTypes'
 
 const homeData = {items: []};
 

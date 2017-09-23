@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {didPlayVideo, didPauseVideo} from '../../actions/playerActions';
-import Video from '../../components/video/Video.jsx';
+import {didPlayVideo, didPauseVideo} from 'actions/playerActions';
+import Video from 'components/video/Video.jsx';
 
 export class VideoContainer extends Component {
 

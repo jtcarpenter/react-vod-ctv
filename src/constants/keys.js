@@ -1,4 +1,4 @@
-import platform from '../services/platform';
+import platform from 'services/platform';
 
-const {keys} = require(`../platforms/${platform.id}/constants/keys`);
+const {keys} = require(`platforms/${platform.id}/constants/keys`);
 export {keys};

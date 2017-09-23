@@ -1,5 +1,5 @@
 import React from 'react';
-import focusable from '../../hocs/focusable.jsx';
+import focusable from 'hocs/focusable.jsx';
 
 const decorateClassName = (className, focused) => {
     return focused

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {changeFocus} from '../actions/focusActions';
-import * as keyTypes from '../constants/keyTypes';
+import {changeFocus} from 'actions/focusActions';
+import * as keyTypes from 'constants/keyTypes';
 
 const isFocused = (focusKey, focusState) => {
     return focusKey.toString() === focusState.currentFocus

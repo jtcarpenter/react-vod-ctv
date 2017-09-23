@@ -1,6 +1,6 @@
 import React from 'react';
-import focusable from '../../hocs/focusable.jsx';
-import * as playerStates from '../../constants/playerStates';
+import focusable from 'hocs/focusable.jsx';
+import * as playerStates from 'constants/playerStates';
 
 const decorateClassName = (className, focused) => {
     return focused

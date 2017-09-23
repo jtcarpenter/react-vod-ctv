@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {PlayButtonContainer} from './PlayButtonContainer';
+import {PlayButtonContainer} from
+    'containers/playButtonContainer/PlayButtonContainer';
 
 const item = {data: {id: 1}};
 const playerState = {};

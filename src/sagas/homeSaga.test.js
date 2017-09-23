@@ -1,7 +1,7 @@
-import {loaded} from './homeSaga'
-import * as actions from '../actions/homeActions'
+import {loaded} from 'sagas/homeSaga'
+import * as actions from 'actions/homeActions'
 import {call, put} from 'redux-saga/effects'
-import {api} from '../services/api'
+import {api} from 'services/api'
 
 const homeData = {items: []};
 

@@ -1,7 +1,7 @@
 import {call, put, takeEvery} from 'redux-saga/effects'
-import * as types from '../constants/playerActionTypes';
-import * as actions from '../actions/playerActions'
-import {api} from '../services/api'
+import * as types from 'constants/playerActionTypes';
+import * as actions from 'actions/playerActions'
+import {api} from 'services/api'
 
 // Our worker Saga: will perform the async task
 export function *loaded(action) {

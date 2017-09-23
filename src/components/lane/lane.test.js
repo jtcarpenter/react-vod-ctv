@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {Lane} from './Lane';
+import {Lane} from 'components/lane/Lane';
 
 const laneData = {items: []};
 const lane = (

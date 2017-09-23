@@ -1,5 +1,5 @@
-import * as actions from './focusActions'
-import * as focusTypes from '../constants/focusActionTypes'
+import * as actions from 'actions/focusActions'
+import * as focusTypes from 'constants/focusActionTypes'
 
 const focusKey = 'testKey';
 const focusData = {focusKey};
