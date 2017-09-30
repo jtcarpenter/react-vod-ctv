@@ -3,7 +3,8 @@ import {shallow} from 'enzyme';
 import {
     HomeContainer,
     getFocusedLaneIndex,
-    parseIntoCategories
+    parseIntoCategories,
+    orderCategories
 } from 'containers/homeContainer/HomeContainer';
 
 const homeData = {
@@ -30,6 +31,19 @@ const laneData = [
         ]
     }
 ];
+const unorderedCategories = [
+    {
+        category: 'no-hero',
+        items: []
+    },
+    {
+        category: 'hero',
+        items: []
+    },
+    {
+        category: 'no-hero',
+        items: []}
+]
 const focusData = {currentFocus: '0'};
 const mockLoad = () => ({});
 const homeContainer = (
@@ -64,5 +78,14 @@ describe('parseIntoCategories', () => {
         expect(categories[0].items[1].category).toEqual('one');
         expect(categories[1].items[0].category).toEqual('two');
         expect(categories[1].items[1].category).toEqual('two');
+    });
+});
+
+describe('orderCategories', () => {
+    it('should put heroes first', () => {
+        const orderedCategories = orderCategories(unorderedCategories);
+        expect(orderedCategories[0].category).toEqual('hero');
+        expect(orderedCategories[1].category).not.toEqual('hero');
+        expect(orderedCategories[2].category).not.toEqual('hero');
     });
 });

@@ -17,19 +17,33 @@ export function getFocusedLaneIndex(lanes, focusKey) {
     return 0
 }
 
+export function orderCategories(categories) {
+    return categories.sort((a, b) => {
+        if (a.category === 'hero') {
+            return -1;
+        }
+        return b.category === 'hero'
+            ? 1
+            : 0;
+    });
+}
+
 export function parseIntoCategories(data) {
     const categoryTypes = [];
     const categories = [];
     for (let i = 0, l = data.items.length; i < l; i += 1) {
         const categoryIndex = categoryTypes.indexOf(data.items[i].category);
         if (categoryIndex === -1) {
-            categories.push({items: [data.items[i]]});
+            categories.push({
+                items: [data.items[i]],
+                category: data.items[i].category
+            });
             categoryTypes.push(data.items[i].category);
         } else {
             categories[categoryIndex].items.push(data.items[i]);
         }
     }
-    return categories;
+    return orderCategories(categories);
 }
 
 export class HomeContainer extends Component {
@@ -94,7 +108,8 @@ export class HomeContainer extends Component {
         for (i = 0, l = categories.length; i < l; i += 1) {
             nextOffset += categories[i].items.length;
             lanes.push({
-                items: categories[i].items.map(assignNav)
+                items: categories[i].items.map(assignNav),
+                category: categories[i].category
             });
             offset = nextOffset;
         }

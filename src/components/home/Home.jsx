@@ -10,18 +10,23 @@ export function Home({
         initialFocusKey
     }) {
 
+    const itemHeight = parseInt(styles.CONTENT_BTN_HEIGHT, 10);
+    const itemMargin = parseInt(styles.CONTENT_BTN_MARGIN, 10);
     const offset = (focusedLaneIndex && focusedLaneIndex > 0)
-        ? parseInt(styles.CONTENT_BTN_HEIGHT, 10) / 2
+        ? itemHeight / 2
         : 0;
     const style = {
         marginTop: (focusedLaneIndex || focusedLaneIndex === 0)
-            ? -((focusedLaneIndex * (
-                (parseInt(styles.CONTENT_BTN_HEIGHT, 10)) +
-                (parseInt(styles.CONTENT_BTN_MARGIN, 10) * 2))
-            ) - offset)
+            ? -(
+                (
+                    focusedLaneIndex * (
+                        (itemHeight) +
+                        (itemMargin * 2)
+                    )
+                ) - offset
+            )
             : 0
     };
-    style.marginTop = 0;
 
     return (
         <div style={style} className="home">

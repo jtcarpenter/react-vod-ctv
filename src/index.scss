@@ -7,6 +7,9 @@ $LANE_MARGIN: 5;
 $CONTENT_BTN_HEIGHT: 250;
 $CONTENT_BTN_WIDTH: 250;
 $CONTENT_BTN_MARGIN: 5;
+$HERO_CONTENT_BTN_HEIGHT: 300;
+$HERO_CONTENT_BTN_WIDTH: 400;
+$HERO_CONTENT_BTN_MARGIN: 5;
 
 $PLAYER_CTRLS_BG_COLOUR: rgba(0, 0, 0, 0.4);
 
@@ -25,6 +28,9 @@ $PLAYER_CTRL_GAP_WIDTH: 10;
     CONTENT_BTN_HEIGHT: $CONTENT_BTN_HEIGHT;
     CONTENT_BTN_WIDTH: $CONTENT_BTN_WIDTH;
     CONTENT_BTN_MARGIN: $CONTENT_BTN_MARGIN;
+    HERO_CONTENT_BTN_HEIGHT: $HERO_CONTENT_BTN_HEIGHT;
+    HERO_CONTENT_BTN_WIDTH: $HERO_CONTENT_BTN_WIDTH;
+    HERO_CONTENT_BTN_MARGIN: $HERO_CONTENT_BTN_MARGIN;
 }
 
 body {
@@ -52,6 +58,12 @@ body {
     float: left;
 }
 
+.content-button--hero {
+    width: $HERO_CONTENT_BTN_WIDTH + px;
+    height: $HERO_CONTENT_BTN_HEIGHT + px;
+    margin: $HERO_CONTENT_BTN_MARGIN + px;
+}
+
 .content-button--focused {
     background-color: grey;
 }
@@ -60,6 +72,10 @@ body {
     height: $CONTENT_BTN_HEIGHT + ($CONTENT_BTN_MARGIN * 2) + px;
     margin: $LANE_MARGIN + px;
     border: 1px dashed #666;
+}
+
+.lane--hero {
+    height: $HERO_CONTENT_BTN_HEIGHT + ($HERO_CONTENT_BTN_MARGIN * 2) + px;
 }
 
 .player-ctrls {
