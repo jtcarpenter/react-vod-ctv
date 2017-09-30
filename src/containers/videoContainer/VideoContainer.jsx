@@ -20,6 +20,10 @@ export class VideoContainer extends Component {
         this.props.onDidPause();
     }
 
+    componentWillUnmount() {
+        this.onDidPause();
+    }
+
     render() {
         const {data, videoState} = this.props;
 

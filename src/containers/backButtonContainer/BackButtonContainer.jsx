@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
 import BackButton from 'components/backButton/BackButton.jsx';
 
 export class BackButtonContainer extends Component {
@@ -12,7 +11,7 @@ export class BackButtonContainer extends Component {
 
     render() {
         if (this.state && this.state.selected) {
-            return <Redirect push to="/" />
+            return this.props.handleBack();
         }
         return (
             <BackButton

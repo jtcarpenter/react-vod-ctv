@@ -21,7 +21,7 @@ export const api = {
     },
 
     player: {
-        get: (opts) => fetch(`${PLAYER_DATA_URL}-${opts.id}.json`)
+        get: (opts) => fetch(`${PLAYER_DATA_URL}.json?=${opts.id}`)
             .then((response) => {
                 if (Math.floor(response.status / 100) !== 2) {
                     return {error: 'error'};

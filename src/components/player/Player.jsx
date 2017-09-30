@@ -7,7 +7,7 @@ import BackButton from
 import Video from
     'containers/videoContainer/VideoContainer.jsx';
 
-export function Player({data, videoState, navItems}) {
+export function Player({data, videoState, navItems, handleBack}) {
 
     return (
         <div>
@@ -22,6 +22,7 @@ export function Player({data, videoState, navItems}) {
                 <div className="player-ctrls-btns">
                     <BackButton
                         item={navItems[0]}
+                        handleBack={handleBack}
                     />
                     <PlayButton
                         item={navItems[1]}

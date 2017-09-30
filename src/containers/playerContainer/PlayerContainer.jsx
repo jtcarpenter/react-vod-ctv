@@ -31,6 +31,11 @@ export class PlayerContainer extends Component {
         this.state = {
             willPlay: false
         }
+        this.handleBack = this.handleBack.bind(this);
+    }
+
+    handleBack() {
+        return <Redirect push to="/" />
     }
 
     componentDidUpdate() {
@@ -66,7 +71,7 @@ export class PlayerContainer extends Component {
 
     render() {
         if (this.state && this.state.back) {
-            return <Redirect push to="/" />
+            return this.handleBack();
         }
         const {playerState} = this.props;
         return (
@@ -75,6 +80,7 @@ export class PlayerContainer extends Component {
                     data={playerState.data}
                     videoState={playerState.videoState}
                     navItems={navItems}
+                    handleBack={this.handleBack}
                 />
             </div>
         )
