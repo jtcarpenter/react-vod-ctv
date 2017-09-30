@@ -1,5 +1,5 @@
-const HOME_DATA_URL = '/home-data.json';
-const PLAYER_DATA_URL = '/item-data';
+const HOME_DATA_URL = '/api/home-data.json';
+const PLAYER_DATA_URL = '/api/item-data';
 
 export const api = {
 
