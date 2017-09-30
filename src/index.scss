@@ -56,6 +56,7 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
     float: left;
+    position: relative;
 }
 
 .content-button--hero {
@@ -65,13 +66,41 @@ body {
 }
 
 .content-button--focused {
-    background-color: grey;
+    border: 7px solid grey;
+}
+
+.content-button__thumb {
+    display: block;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.content-button__thumb--hero {
+    display: block;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    margin-left: 25px;
+}
+
+.content-button__title {
+    text-align: center;
+    margin: 15px 25px;
+    font-size: 25px;
+    color: grey;
+}
+
+.content-button__title--hero {
+    text-align: left;
+    margin: 15px 25px;
+    font-size: 30px;
 }
 
 .lane {
     height: $CONTENT_BTN_HEIGHT + ($CONTENT_BTN_MARGIN * 2) + px;
     margin: $LANE_MARGIN + px;
-    border: 1px dashed #666;
 }
 
 .lane--hero {

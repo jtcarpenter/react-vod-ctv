@@ -2,14 +2,22 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import focusable from 'hocs/focusable.jsx';
 
-const decorateClassName = (className, isHero, focused) => {
+const rootClassName = 'content-button';
+const titleClassName = `${rootClassName}__title`;
+const imgClassName = `${rootClassName}__thumb`;
+
+const mixinFocusClassName = (className, focused) => {
+    const focusClassName = focused
+    ? `${className}--focused`
+    : '';
+    return `${className} ${focusClassName}`
+}
+
+const mixinHeroClassName = (className, isHero) => {
     const heroClassName = isHero
         ? `${className}--hero`
         : '';
-    const focusClassName = focused
-        ? `${className}--focused`
-        : '';
-    return `${className} ${heroClassName} ${focusClassName}`;
+    return `${className} ${heroClassName}`
 }
 
 export function ContentButton({item, focused}) {
@@ -18,13 +26,32 @@ export function ContentButton({item, focused}) {
         <Link to={`/player/${item.id}`}>
             <div
                 id={item.id}
-                className={decorateClassName(
-                    'content-button',
-                    item.category === 'hero',
-                    focused
-                )}
+                className={[
+                    mixinHeroClassName(
+                        rootClassName,
+                        item.category === 'hero'
+                    ),
+                    mixinFocusClassName(
+                        rootClassName,
+                        focused
+                    )
+                ].join(' ')}
             >
-                {item.title}
+                <h2
+                    className={mixinHeroClassName(
+                        titleClassName,
+                        item.category === 'hero'
+                    )}
+                >
+                    {item.title}
+                </h2>
+                <img
+                    className={mixinHeroClassName(
+                        imgClassName,
+                        item.category === 'hero'
+                    )}
+                    src={item.thumb}
+                />
             </div>
         </Link>
     );
