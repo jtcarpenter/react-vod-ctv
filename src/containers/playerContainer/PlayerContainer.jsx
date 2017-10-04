@@ -5,6 +5,7 @@ import Player from 'components/player/Player.jsx';
 import {load, playVideo, pauseVideo} from 'actions/playerActions';
 import * as keyTypes from 'constants/keyTypes';
 import * as playerStates from 'constants/playerStates';
+import Error from 'components/error/Error.jsx';
 
 const navItems = [
     {
@@ -74,6 +75,9 @@ export class PlayerContainer extends Component {
             return this.handleBack();
         }
         const {playerState} = this.props;
+        if (playerState.error) {
+            return <Error errorMessage={playerState.error} />
+        }
         return (
             <div>
                 <Player

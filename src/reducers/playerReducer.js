@@ -20,6 +20,10 @@ export default function playerReducer(state = defaultState, action) {
                     src: action.payload.src
                 }
             });
+        case playerTypes.FAILED:
+            return Object.assign({}, state, {
+                error: action.payload.error
+            });
         case playerTypes.PLAY_VIDEO:
             return Object.assign({}, state, {
                 videoState: playerStates.WILL_PLAY

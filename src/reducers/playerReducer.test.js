@@ -1,5 +1,5 @@
 import playerReducer from 'reducers/playerReducer';
-import * as types from 'constants/playerActionTypes';
+import * as playerTypes from 'constants/playerActionTypes';
 import * as playerStates from 'constants/playerStates';
 
 const state = {
@@ -8,30 +8,40 @@ const state = {
         src: null
     }
 }
+const error = 'an error';
 const loadedAction = {
-    type: types.LOADED,
+    type: playerTypes.LOADED,
     payload: {
         id: 1,
         src: 'test'
     }
 }
+const failedAction = {
+    type: playerTypes.FAILED,
+    payload: {error}
+}
 const playVideoAction = {
-    type: types.PLAY_VIDEO
+    type: playerTypes.PLAY_VIDEO
 }
 const pauseVideoAction = {
-    type: types.PAUSE_VIDEO
+    type: playerTypes.PAUSE_VIDEO
 }
 const didPlayVideoAction = {
-    type: types.DID_PLAY_VIDEO
+    type: playerTypes.DID_PLAY_VIDEO
 }
 const didPauseVideoAction = {
-    type: types.DID_PAUSE_VIDEO
+    type: playerTypes.DID_PAUSE_VIDEO
 }
 
 describe('playerReducer', () => {
     it('should create return state with loaded data', () => {
         const actual = playerReducer(state, loadedAction);
         expect(actual.data).toEqual(loadedAction.payload);
+    });
+
+    it('should create return state with error on after fail action', () => {
+        const actual = playerReducer(state, failedAction);
+        expect(actual.error).toEqual(failedAction.payload.error);
     });
 
     it('should return videoState oF WILL_PLAY', () => {

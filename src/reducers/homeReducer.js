@@ -13,6 +13,10 @@ export default function homeReducer(state = defaultState, action) {
             return Object.assign({}, state, {
                 data: action.payload
             });
+        case homeTypes.FAILED:
+            return Object.assign({}, state, {
+                error: action.payload.error
+            });
         default:
             return state;
     }

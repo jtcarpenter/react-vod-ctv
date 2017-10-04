@@ -12,3 +12,10 @@ export function loaded(payload) {
         payload
     }
 }
+
+export function failed(payload) {
+    return {
+        type: homeTypes.FAILED,
+        payload
+    }
+}

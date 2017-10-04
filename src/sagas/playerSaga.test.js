@@ -9,18 +9,30 @@ const playerData = {
     title: 'test',
     src: 'test'
 };
+const playerError = {error: 'an error'};
 
 describe('playerSaga', () => {
 
-    const generator = loaded({payload: playerOpts});
+    let generator = null;
+
+    beforeEach(() => {
+        generator = loaded({payload: playerOpts});
+    });
 
     it('should yield actions.load', () => {
-        const next = generator.next(actions.load(playerOpts))
+        const next = generator.next(actions.load(playerOpts));
         expect(next.value).toEqual(call(api.player.get, playerOpts));
     });
 
     it('should yield actions.loaded(playerData)', () => {
+        generator.next(actions.load(playerOpts))
         const next = generator.next(playerData);
         expect(next.value).toEqual(put(actions.loaded(playerData)));
-    })
+    });
+
+    it('should yield actions.failed(playerError)', () => {
+        generator.next(actions.load());
+        const next = generator.next(playerError);
+        expect(next.value).toEqual(put(actions.failed(playerError)));
+    });
 });

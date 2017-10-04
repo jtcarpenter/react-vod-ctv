@@ -5,6 +5,7 @@ import {load} from 'actions/homeActions';
 import {withRouter} from 'react-router-dom';
 import * as keyTypes from 'constants/keyTypes';
 import exitable from 'PLATFORM/hocs/exitable.jsx';
+import Error from 'components/error/Error.jsx';
 
 export function getFocusedLaneIndex(lanes, focusKey) {
     for (let i = 0, l = lanes.length; i < l; i += 1) {
@@ -152,6 +153,9 @@ export class HomeContainer extends Component {
             this.exit();
         }
         const {focusState, homeState} = this.props;
+        if (homeState.error) {
+            return <Error errorMessage={homeState.error} />
+        }
         const laneData = this.parseIntoLanes(homeState.data);
         const focusedLaneIndex = getFocusedLaneIndex(
             laneData.lanes,

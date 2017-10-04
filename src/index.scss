@@ -1,6 +1,7 @@
 $APP_WIDTH: 1280;
 $APP_HEIGHT: 720;
 $APP_BG_COLOUR: #000000;
+$ERROR_COLOUR: #ea5a5a;
 
 $LANE_MARGIN: 5;
 
@@ -36,6 +37,13 @@ $PLAYER_CTRL_GAP_WIDTH: 10;
 body {
     margin: 0;
     overflow: hidden;
+    font-family:
+        "HelveticaNeue-Light",
+        "Helvetica Neue Light",
+        "Helvetica Neue",
+        Helvetica, Arial,
+        "Lucida Grande",
+        sans-serif;
 }
 
 .app {
@@ -46,6 +54,14 @@ body {
     height: $APP_HEIGHT + px;
     background-color: $APP_BG_COLOUR;
     overflow: hidden;
+}
+
+.error {
+    color: $ERROR_COLOUR;
+    width: ($APP_WIDTH / 2) + px;
+    margin: (($APP_HEIGHT / 2) - 15) + px auto 0 auto;
+    text-align: center;
+    font-size: 30px;
 }
 
 .content-button {

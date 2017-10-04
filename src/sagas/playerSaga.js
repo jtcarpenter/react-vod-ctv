@@ -7,7 +7,7 @@ import {api} from 'services/api'
 export function *loaded(action) {
     const data = yield call(api.player.get, action.payload);
     if (data.error) {
-        // TODO: handle error
+        yield put(actions.failed(data));
     }
     yield put(actions.loaded(data));
 }
