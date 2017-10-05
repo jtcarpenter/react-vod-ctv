@@ -4,7 +4,7 @@ import {ContentButton} from 'components/contentButton/ContentButton';
 import {MemoryRouter} from 'react-router-dom';
 
 const contentButtonData = {
-    id: 1,
+    id: '1',
     title: 'test'
 };
 const contentButtonSelectHandler = () => null;
@@ -26,7 +26,7 @@ describe('ContentButton', () => {
 
     it('should render correct title', () => {
         const wrapper = mount(contentButton);
-        expect(wrapper.find(`#${contentButtonData.id}`).text())
+        expect(wrapper.find(`#content-button-${contentButtonData.id}`).text())
             .toEqual(contentButtonData.title);
     })
 })

@@ -25,7 +25,7 @@ export function ContentButton({item, focused}) {
     return (
         <Link to={`/player/${item.id}`}>
             <div
-                id={item.id}
+                id={`content-button-${item.id}`}
                 className={[
                     mixinHeroClassName(
                         rootClassName,
