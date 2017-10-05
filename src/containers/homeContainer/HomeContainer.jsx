@@ -58,46 +58,44 @@ export class HomeContainer extends Component {
         this.lastLaneFocusKeys = [];
     }
 
-    parseIntoLanes(data) {
-        const categories = parseIntoCategories(data);
+    parseIntoLanes(categories) {
         const lanes = [];
-        let i = null;
-        let l = null;
+        let catIdx = null;
         let offset = 0;
         let nextOffset = 0;
-        const assignNav = (item, index) => {
+        const assignNav = (item, itemIdx) => {
             return Object.assign({}, item, {
                 nav: {
-                    focusKey: (offset + index).toString(),
+                    focusKey: (offset + itemIdx).toString(),
                     nextRight: (
                         Math.min(
-                            offset + index + 1,
-                            offset + categories[i].items.length - 1
+                            offset + itemIdx + 1,
+                            offset + categories[catIdx].items.length - 1
                         )
                     ).toString(),
                     nextLeft: (
                         Math.max(
-                            offset + index - 1,
+                            offset + itemIdx - 1,
                             0
                         )
                     ).toString(),
                     nextDown: (() => {
-                        if (this.lastLaneFocusKeys[i + 1]) {
-                            return this.lastLaneFocusKeys[i + 1];
+                        if (this.lastLaneFocusKeys[catIdx + 1]) {
+                            return this.lastLaneFocusKeys[catIdx + 1];
                         }
                         return (
-                            categories[i + 1]
+                            categories[catIdx + 1]
                                 ? nextOffset
                                 : offset
                         ).toString();
                     })(),
                     nextUp: (() => {
-                        if (this.lastLaneFocusKeys[i - 1]) {
-                            return this.lastLaneFocusKeys[i - 1];
+                        if (this.lastLaneFocusKeys[catIdx - 1]) {
+                            return this.lastLaneFocusKeys[catIdx - 1];
                         }
                         return (Math.max(
-                            offset - (categories[i - 1]
-                                ? (categories[i - 1].items.length)
+                            offset - (categories[catIdx - 1]
+                                ? (categories[catIdx - 1].items.length)
                                 : 0),
                             0
                         )).toString();
@@ -106,11 +104,11 @@ export class HomeContainer extends Component {
             })
         }
 
-        for (i = 0, l = categories.length; i < l; i += 1) {
-            nextOffset += categories[i].items.length;
+        for (catIdx = 0; catIdx < categories.length; catIdx += 1) {
+            nextOffset += categories[catIdx].items.length;
             lanes.push({
-                items: categories[i].items.map(assignNav),
-                category: categories[i].category
+                items: categories[catIdx].items.map(assignNav),
+                category: categories[catIdx].category
             });
             offset = nextOffset;
         }
@@ -156,7 +154,8 @@ export class HomeContainer extends Component {
         if (homeState.error) {
             return <Error errorMessage={homeState.error} />
         }
-        const laneData = this.parseIntoLanes(homeState.data);
+        const categories = parseIntoCategories(homeState.data);
+        const laneData = this.parseIntoLanes(categories);
         const focusedLaneIndex = getFocusedLaneIndex(
             laneData.lanes,
             focusState.currentFocus
