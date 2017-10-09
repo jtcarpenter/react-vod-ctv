@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Home from 'components/home/Home.jsx';
 import {load} from 'actions/homeActions';
-import {withRouter} from 'react-router-dom';
 import * as keyTypes from 'constants/keyTypes';
 import exitable from 'PLATFORM/hocs/exitable.jsx';
 import Error from 'components/error/Error.jsx';
@@ -180,11 +181,18 @@ export class HomeContainer extends Component {
     }
 }
 
+HomeContainer.propTypes = {
+    homeState: PropTypes.object.isRequired,
+    focusState: PropTypes.object.isRequired,
+    keyState: PropTypes.object.isRequired,
+    load: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => {
     return {
         homeState: state.homeReducer,
         focusState: state.focusReducer,
-        keyState: state.keyReducer,
+        keyState: state.keyReducer
     };
 };
 

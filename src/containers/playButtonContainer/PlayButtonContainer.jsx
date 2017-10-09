@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import PlayButton from 'components/playButton/PlayButton.jsx';
 import {playVideo, pauseVideo} from 'actions/playerActions';
 import * as playerStates from 'constants/playerStates';
@@ -43,6 +44,14 @@ export class PlayButtonContainer extends Component {
             this.handlePlay();
         }
     }
+}
+
+PlayButtonContainer.propTypes = {
+    item: PropTypes.object.isRequired,
+    initialFocus: PropTypes.bool,
+    playerState: PropTypes.object.isRequired,
+    playVideo: PropTypes.func.isRequired,
+    pauseVideo: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {

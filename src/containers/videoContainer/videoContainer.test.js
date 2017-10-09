@@ -5,9 +5,15 @@ import {VideoContainer} from 'containers/videoContainer/VideoContainer';
 const videoData = {
     src: 'test'
 };
+const playerState = {}
+const onDidPlay = () => {}
+const onDidPause = () => {}
 const player = (
     <VideoContainer
         data={videoData}
+        playerState={playerState}
+        onDidPlay={onDidPlay}
+        onDidPause={onDidPause}
     />
 )
 

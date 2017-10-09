@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {changeFocus} from 'actions/focusActions';
 import * as keyTypes from 'constants/keyTypes';
 
@@ -89,6 +90,15 @@ export class Focusable extends Component {
             />
         );
     }
+}
+
+Focusable.propTypes = {
+    initialFocus: PropTypes.bool,
+    item: PropTypes.object.isRequired,
+    WrappedComponent: PropTypes.func.isRequired,
+    keyState: PropTypes.object.isRequired,
+    focusState: PropTypes.object.isRequired,
+    changeFocus: PropTypes.func.isRequired
 }
 
 export function focusable(WrappedComponent) {

@@ -50,6 +50,7 @@ const homeContainer = (
     <HomeContainer
         homeState={homeData}
         focusState={focusData}
+        keyState={{}}
         load={mockLoad}
     >
     </HomeContainer>

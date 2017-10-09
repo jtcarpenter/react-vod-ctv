@@ -4,9 +4,11 @@ import {BackButtonContainer} from
     'containers/backButtonContainer/BackButtonContainer';
 
 const item = {data: {id: 1}};
+const handleBack = () => {};
 const backButtonContainer = (
     <BackButtonContainer
         item={item}
+        handleBack={handleBack}
     >
     </BackButtonContainer>
 );

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class Exitable extends Component {
 
@@ -23,6 +24,10 @@ export class Exitable extends Component {
             />
         );
     }
+}
+
+Exitable.propTypes = {
+    WrappedComponent: PropTypes.func.isRequired
 }
 
 export function exitable(WrappedComponent) {

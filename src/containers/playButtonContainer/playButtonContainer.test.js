@@ -5,10 +5,14 @@ import {PlayButtonContainer} from
 
 const item = {data: {id: 1}};
 const playerState = {};
+const playVideo = () => {};
+const pauseVideo = () => {};
 const playButtonContainer = (
     <PlayButtonContainer
         item={item}
         playerState={playerState}
+        playVideo={playVideo}
+        pauseVideo={pauseVideo}
     >
     </PlayButtonContainer>
 );

@@ -7,10 +7,12 @@ const playerData = {
     src: 'test'
 };
 const navItems = [{}, {}];
+const handleBack = () => {};
 const player = (
     <Player
         data={playerData}
         navItems={navItems}
+        handleBack={handleBack}
     >
     </Player>
 )
@@ -20,4 +22,4 @@ describe('Player', () => {
         const wrapper = shallow(player);
         expect(wrapper.exists()).toBe(true);
     })
-})
+});

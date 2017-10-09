@@ -13,12 +13,16 @@ const mockItem = {
         focusKey: 'testKey'
     }
 }
-const mockFocusState = {}
+const mockFocusState = {};
+const mockKeyState = {};
+const mockChangeFocus = () => {};
 const focusable = (
     <Focusable
         item={mockItem}
         focusState={mockFocusState}
         WrappedComponent={Dummy}
+        keyState={mockKeyState}
+        changeFocus={mockChangeFocus}
     >
     </Focusable>
 );

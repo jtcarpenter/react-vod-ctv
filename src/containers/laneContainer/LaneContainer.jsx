@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Lane from 'components/lane/Lane.jsx';
 
 export class LaneContainer extends Component {
@@ -22,6 +23,13 @@ export class LaneContainer extends Component {
             />
         )
     }
+}
+
+LaneContainer.propTypes = {
+    data: PropTypes.object.isRequired,
+    handleSelect: PropTypes.func.isRequired,
+    currentFocus: PropTypes.string,
+    initialFocusKey: PropTypes.string.isRequired
 }
 
 export default LaneContainer;

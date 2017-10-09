@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {didPlayVideo, didPauseVideo} from 'actions/playerActions';
 import Video from 'components/video/Video.jsx';
 
@@ -36,6 +37,14 @@ export class VideoContainer extends Component {
             />
         )
     }
+}
+
+VideoContainer.propTypes = {
+    data: PropTypes.object.isRequired,
+    videoState: PropTypes.string,
+    playerState: PropTypes.object.isRequired,
+    onDidPlay: PropTypes.func.isRequired,
+    onDidPause: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

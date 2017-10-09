@@ -26,7 +26,7 @@ export function Player({data, videoState, navItems, handleBack}) {
                     />
                     <PlayButton
                         item={navItems[1]}
-                        initialFocus="true"
+                        initialFocus={true}
                     />
                 </div>
             </div>

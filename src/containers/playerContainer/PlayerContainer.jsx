@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Player from 'components/player/Player.jsx';
 import {load, playVideo, pauseVideo} from 'actions/playerActions';
 import * as keyTypes from 'constants/keyTypes';
@@ -89,6 +90,14 @@ export class PlayerContainer extends Component {
             </div>
         )
     }
+}
+
+PlayerContainer.propTypes = {
+    playerState: PropTypes.object.isRequired,
+    keyState: PropTypes.object.isRequired,
+    load: PropTypes.func.isRequired,
+    playVideo: PropTypes.func.isRequired,
+    pauseVideo: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {
