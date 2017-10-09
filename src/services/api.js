@@ -1,3 +1,5 @@
+import * as errorMessages from 'constants/errorMessages';
+
 const HOME_DATA_URL = '/api/home-data.json';
 const PLAYER_DATA_URL = '/api/item-data';
 
@@ -8,7 +10,7 @@ export const api = {
             .then((response) => {
                 if (Math.floor(response.status / 100) !== 2) {
                     return {
-                        error: 'error',
+                        error: errorMessages.ERROR_CONTENT,
                         status: response.status
                     };
                 }
@@ -24,7 +26,7 @@ export const api = {
         get: (opts) => fetch(`${PLAYER_DATA_URL}.json?=${opts.id}`)
             .then((response) => {
                 if (Math.floor(response.status / 100) !== 2) {
-                    return {error: 'error'};
+                    return {error: errorMessages.ERROR_CONTENT};
                 }
                 return response.json()
                     .then((data) => data);
