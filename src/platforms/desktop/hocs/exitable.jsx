@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-export class Exitable extends Component {
+export class Exitable extends PureComponent {
 
     constructor(props) {
         super();

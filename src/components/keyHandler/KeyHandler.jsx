@@ -1,10 +1,10 @@
-import React, {Component, Children} from 'react';
+import React, {PureComponent, Children} from 'react';
 import {connect} from 'react-redux';
 import {keyPressed} from 'actions/keyActions';
 import {keys} from 'PLATFORM/constants/keys';
 import * as keyTypes from 'constants/keyTypes';
 
-export class KeyHandler extends Component {
+export class KeyHandler extends PureComponent {
 
     constructor(props) {
         super();

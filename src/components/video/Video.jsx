@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import * as playerStates from 'constants/playerStates';
 import styles from 'index.scss'
 
 const VIDEO_REF = 'VIDEO_REF';
 
-export class Video extends Component {
+export class Video extends PureComponent {
 
     constructor(props) {
         super();

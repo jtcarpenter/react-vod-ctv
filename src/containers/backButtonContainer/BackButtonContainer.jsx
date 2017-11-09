@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import BackButton from 'components/backButton/BackButton.jsx';
 
-export class BackButtonContainer extends Component {
+export class BackButtonContainer extends PureComponent {
 
     constructor(props) {
         super();

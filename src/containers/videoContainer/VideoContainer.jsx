@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {didPlayVideo, didPauseVideo} from 'actions/playerActions';
 import Video from 'components/video/Video.jsx';
 
-export class VideoContainer extends Component {
+export class VideoContainer extends PureComponent {
 
     constructor(props) {
         super();

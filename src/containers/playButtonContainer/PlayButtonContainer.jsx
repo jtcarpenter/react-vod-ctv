@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import PlayButton from 'components/playButton/PlayButton.jsx';
 import {playVideo, pauseVideo} from 'actions/playerActions';
 import * as playerStates from 'constants/playerStates';
 
-export class PlayButtonContainer extends Component {
+export class PlayButtonContainer extends PureComponent {
 
     constructor(props) {
         super();
@@ -16,15 +16,15 @@ export class PlayButtonContainer extends Component {
     }
 
     render() {
-        const {playerState} = this.props;
+        const {playerState, item, initialFocus} = this.props;
         return (
             <PlayButton
                 videoState={playerState.videoState}
                 handlePlay={this.handlePlay}
                 handlePause={this.handlePause}
                 handleSelect={this.handleSelect}
-                item={this.props.item}
-                initialFocus={this.props.initialFocus}
+                item={item}
+                initialFocus={initialFocus}
             />
         )
     }

@@ -1,9 +1,9 @@
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Error from 'components/error/Error.jsx';
 import * as errorMessages from 'constants/errorMessages';
 
-export default class ErrorBoundary extends Component {
+export default class ErrorBoundary extends PureComponent {
 
     constructor(props) {
       super(props);

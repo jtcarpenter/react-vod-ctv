@@ -14,9 +14,10 @@ export class LaneContainer extends Component {
     }
 
     render() {
+        const {data} = this.props;
         return (
             <Lane
-                data={this.props.data}
+                data={data}
                 handleSelect={this.props.handleSelect}
                 currentFocus={this.props.currentFocus}
                 initialFocusKey={this.props.initialFocusKey}
