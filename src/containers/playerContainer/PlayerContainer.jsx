@@ -80,14 +80,12 @@ export class PlayerContainer extends Component {
             return <Error errorMessage={playerState.error} />
         }
         return (
-            <div>
-                <Player
-                    data={playerState.data}
-                    videoState={playerState.videoState}
-                    navItems={navItems}
-                    handleBack={this.handleBack}
-                />
-            </div>
+            <Player
+                data={playerState.data}
+                videoState={playerState.videoState}
+                navItems={navItems}
+                handleBack={this.handleBack}
+            />
         )
     }
 }

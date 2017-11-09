@@ -164,15 +164,14 @@ export class HomeContainer extends Component {
         this.lastLaneFocusKeys[focusedLaneIndex] = focusState.currentFocus;
 
         return (
-            <div>
-                <Home
-                    laneData={laneData}
-                    handleSelect={this.handleSelect}
-                    currentFocus={focusState.currentFocus}
-                    focusedLaneIndex={focusedLaneIndex}
-                    initialFocusKey={'0'}
-                ></Home>
-            </div>
+            <Home
+                laneData={laneData}
+                handleSelect={this.handleSelect}
+                currentFocus={focusState.currentFocus}
+                focusedLaneIndex={focusedLaneIndex}
+                initialFocusKey={'0'}
+            >
+            </Home>
         )
     }
 

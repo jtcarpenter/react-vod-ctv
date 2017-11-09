@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Children} from 'react';
 import {connect} from 'react-redux';
 import {keyPressed} from 'actions/keyActions';
 import {keys} from 'PLATFORM/constants/keys';
@@ -13,9 +13,7 @@ export class KeyHandler extends Component {
 
     render() {
         return (
-            <div>
-                {this.props.children}
-            </div>
+            Children.toArray(this.props.children)
         )
     }
 

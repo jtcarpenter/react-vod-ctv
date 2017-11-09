@@ -3,9 +3,9 @@ import * as actions from 'actions/playerActions'
 import {call, put} from 'redux-saga/effects'
 import {api} from 'services/api'
 
-const playerOpts = {id: 0};
+const playerOpts = {id: 'test'};
 const playerData = {
-    id: 0,
+    id: 'test',
     title: 'test',
     src: 'test'
 };
