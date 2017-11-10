@@ -1,19 +1,30 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {PlayerContainer} from 'containers/playerContainer/PlayerContainer';
+import {movieSelector} from 'reducers/playerReducer';
 
-const playerData = {data: {id: 1}};
+const mockMovie = {id: 1};
+const mockMovieWithTitle = {
+    id: 1,
+    title: 'test title'
+}
+const mockMovieWithTitle2 = {
+    id: 2,
+    title: 'test title 2'
+};
+const mockMoviesHash = {
+    [mockMovieWithTitle.id]: mockMovieWithTitle,
+    [mockMovieWithTitle2.id]: mockMovieWithTitle2
+}
 const mockLoad = () => ({});
 const mockMatch = {params: {}}
-const mockKeyState = {};
 const mockPlayVideo = () => {};
 const mockPauseVideo = () => {};
 const playerContainer = (
     <PlayerContainer
         load={mockLoad}
-        playerState={playerData}
+        movie={mockMovie}
         match={mockMatch}
-        keyState={mockKeyState}
         playVideo={mockPlayVideo}
         pauseVideo={mockPauseVideo}
     >
@@ -25,4 +36,11 @@ describe('PlayerContainer', () => {
         const wrapper = shallow(playerContainer);
         expect(wrapper.exists()).toBe(true);
     })
-})
+});
+
+describe('movieSelector', () => {
+    it('should return movie object with title from movies data', () => {
+        const actual = movieSelector(mockMoviesHash, mockMovie);
+        expect(actual).toEqual(mockMovieWithTitle);
+    })
+});

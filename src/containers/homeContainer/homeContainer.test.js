@@ -9,7 +9,7 @@ import {
 
 const homeData = {
     data: {
-        items: [
+        movies: [
             {category: 'one'},
             {category: 'one'},
             {category: 'two'},
@@ -17,6 +17,12 @@ const homeData = {
         ]
     }
 };
+const mockMovies = [
+    {category: 'one'},
+    {category: 'one'},
+    {category: 'two'},
+    {category: 'two'}
+]
 const laneData = [
     {
         items: [
@@ -44,12 +50,10 @@ const unorderedCategories = [
         category: 'no-hero',
         items: []}
 ]
-const focusData = {currentFocus: '0'};
 const mockLoad = () => ({});
 const homeContainer = (
     <HomeContainer
-        homeState={homeData}
-        focusState={focusData}
+        movies={mockMovies}
         keyState={{}}
         load={mockLoad}
     >
@@ -73,7 +77,7 @@ describe('getFocusedLaneIndex', () => {
 });
 
 describe('parseIntoCategories', () => {
-    it('should return items parsed into arrays of cateogories', () => {
+    it('should return movies parsed into arrays of cateogories', () => {
         const categories = parseIntoCategories(homeData.data);
         expect(categories[0].items[0].category).toEqual('one');
         expect(categories[0].items[1].category).toEqual('one');

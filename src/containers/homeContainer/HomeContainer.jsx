@@ -7,6 +7,7 @@ import {load} from 'actions/homeActions';
 import * as keyTypes from 'constants/keyTypes';
 import exitable from 'PLATFORM/hocs/exitable.jsx';
 import Error from 'components/error/Error.jsx';
+import {moviesSelector} from 'reducers/homeReducer';
 
 export function getFocusedLaneIndex(lanes, focusKey) {
     for (let i = 0, l = lanes.length; i < l; i += 1) {
@@ -33,16 +34,16 @@ export function orderCategories(categories) {
 export function parseIntoCategories(data) {
     const categoryTypes = [];
     const categories = [];
-    for (let i = 0, l = data.items.length; i < l; i += 1) {
-        const categoryIndex = categoryTypes.indexOf(data.items[i].category);
+    for (let i = 0, l = data.movies.length; i < l; i += 1) {
+        const categoryIndex = categoryTypes.indexOf(data.movies[i].category);
         if (categoryIndex === -1) {
             categories.push({
-                items: [data.items[i]],
-                category: data.items[i].category
+                items: [data.movies[i]],
+                category: data.movies[i].category
             });
-            categoryTypes.push(data.items[i].category);
+            categoryTypes.push(data.movies[i].category);
         } else {
-            categories[categoryIndex].items.push(data.items[i]);
+            categories[categoryIndex].items.push(data.movies[i]);
         }
     }
     return orderCategories(categories);
@@ -118,7 +119,7 @@ export class HomeContainer extends Component {
     }
 
     componentDidUpdate() {
-        const {lastKeyPressed} = this.props.keyState;
+        const {lastKeyPressed} = this.props;
         if (lastKeyPressed) {
             switch (lastKeyPressed.keyType) {
                 case keyTypes.KEY_BACK:
@@ -151,23 +152,23 @@ export class HomeContainer extends Component {
         if (this.state && this.state.back) {
             this.exit();
         }
-        const {focusState, homeState} = this.props;
-        if (homeState.error) {
-            return <Error errorMessage={homeState.error} />
+        const {movies, error, currentFocus} = this.props;
+        if (error) {
+            return <Error errorMessage={error} />
         }
-        const categories = parseIntoCategories(homeState.data);
+        const categories = parseIntoCategories({movies});
         const laneData = this.parseIntoLanes(categories);
         const focusedLaneIndex = getFocusedLaneIndex(
             laneData.lanes,
-            focusState.currentFocus
+            currentFocus
         );
-        this.lastLaneFocusKeys[focusedLaneIndex] = focusState.currentFocus;
+        this.lastLaneFocusKeys[focusedLaneIndex] = currentFocus;
 
         return (
             <Home
                 laneData={laneData}
                 handleSelect={this.handleSelect}
-                currentFocus={focusState.currentFocus}
+                currentFocus={currentFocus}
                 focusedLaneIndex={focusedLaneIndex}
                 initialFocusKey={'0'}
             >
@@ -175,23 +176,26 @@ export class HomeContainer extends Component {
         )
     }
 
-    handleSelect(index) {
-        this.props.history.push(`/player/${index}`);
+    handleSelect(movie) {
+        this.props.history.push(`/player/${movie.id}`);
     }
 }
 
 HomeContainer.propTypes = {
-    homeState: PropTypes.object.isRequired,
-    focusState: PropTypes.object.isRequired,
-    keyState: PropTypes.object.isRequired,
+    movies: PropTypes.array.isRequired,
+    error: PropTypes.string,
+    lastKeyPressed: PropTypes.object,
+    currentFocus: PropTypes.string,
     load: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
     return {
         homeState: state.homeReducer,
-        focusState: state.focusReducer,
-        keyState: state.keyReducer
+        movies: moviesSelector(state.homeReducer.byId),
+        error: state.homeReducer.error,
+        currentFocus: state.focusReducer.currentFocus,
+        lastKeyPressed: state.keyReducer.lastKeyPressed
     };
 };
 

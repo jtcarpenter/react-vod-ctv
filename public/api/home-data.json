@@ -1,85 +1,73 @@
 {
-  "items": [
+  "movies": [
     {
       "id": 0,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Big Buck Bunny",
       "category": "one",
       "thumb": "http://lorempixel.com/200/125/"
     },
     {
       "id": 1,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Battle of Retribution",
       "category": "one",
       "thumb": "http://lorempixel.com/200/125/"
     },
     {
       "id": 2,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Extreme Overkill",
       "category": "one",
       "thumb": "http://lorempixel.com/200/125/"
     },
     {
       "id": 3,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Tomb of the Robots",
       "category": "one",
       "thumb": "http://lorempixel.com/200/125/"
     },
     {
       "id": 4,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Adventure to Venus",
       "category": "hero",
       "thumb": "http://lorempixel.com/275/165/"
     },
     {
       "id": 5,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "The Decadent Angelique Roberts",
       "category": "two",
       "thumb": "http://lorempixel.com/200/125/"
     },
     {
       "id": 6,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "The Mystery of The Octopus-Man Unbound",
       "category": "hero",
       "thumb": "http://lorempixel.com/275/165/"
     },
     {
       "id": 7,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Legacy of The Terrifying Androids",
       "category": "hero",
       "thumb": "http://lorempixel.com/275/165/"
     },
     {
       "id": 8,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Monster of Terror",
       "category": "hero",
       "thumb": "http://lorempixel.com/275/165/"
     },
     {
       "id": 9,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Marie Curie meets The Tiger-People",
       "category": "two",
       "thumb": "http://lorempixel.com/200/125/"
     },
     {
       "id": 10,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "The Fear of Los Angeles",
       "category": "hero",
       "thumb": "http://lorempixel.com/275/165/"
     },
     {
       "id": 11,
-      "src": "http:\/\/clips.vorwaerts-gmbh.de\/big_buck_bunny.mp4",
       "title": "Beyond Babel",
       "category": "hero",
       "thumb": "http://lorempixel.com/275/165/"

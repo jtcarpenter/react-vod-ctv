@@ -7,6 +7,7 @@ import {load, playVideo, pauseVideo} from 'actions/playerActions';
 import * as keyTypes from 'constants/keyTypes';
 import * as playerStates from 'constants/playerStates';
 import Error from 'components/error/Error.jsx';
+import {movieSelector} from 'reducers/playerReducer';
 
 const navItems = [
     {
@@ -41,8 +42,8 @@ export class PlayerContainer extends PureComponent {
     }
 
     componentDidUpdate() {
-        const {lastKeyPressed} = this.props.keyState;
-        const {videoState} = this.props.playerState;
+        const {lastKeyPressed} = this.props;
+        const {videoState} = this.props;
         if (lastKeyPressed) {
             switch (lastKeyPressed.keyType) {
                 case keyTypes.KEY_PLAY:
@@ -75,14 +76,14 @@ export class PlayerContainer extends PureComponent {
         if (this.state && this.state.back) {
             return this.handleBack();
         }
-        const {playerState} = this.props;
-        if (playerState.error) {
-            return <Error errorMessage={playerState.error} />
+        const {movie, error, videoState} = this.props;
+        if (error) {
+            return <Error errorMessage={error} />
         }
         return (
             <Player
-                data={playerState.data}
-                videoState={playerState.videoState}
+                data={movie}
+                videoState={videoState}
                 navItems={navItems}
                 handleBack={this.handleBack}
             />
@@ -91,8 +92,10 @@ export class PlayerContainer extends PureComponent {
 }
 
 PlayerContainer.propTypes = {
-    playerState: PropTypes.object.isRequired,
-    keyState: PropTypes.object.isRequired,
+    movie: PropTypes.object.isRequired,
+    videoState: PropTypes.string,
+    error: PropTypes.string,
+    lastKeyPressed: PropTypes.object,
     load: PropTypes.func.isRequired,
     playVideo: PropTypes.func.isRequired,
     pauseVideo: PropTypes.func.isRequired,
@@ -100,8 +103,13 @@ PlayerContainer.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        playerState: state.playerReducer,
-        keyState: state.keyReducer,
+        movie: movieSelector(
+            state.homeReducer.byId,
+            state.playerReducer.movie
+        ),
+        error: state.playerReducer.error,
+        videoState: state.playerReducer.videoState,
+        lastKeyPressed: state.keyReducer.lastKeyPressed,
     };
 };
 

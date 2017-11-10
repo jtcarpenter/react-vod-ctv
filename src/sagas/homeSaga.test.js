@@ -3,7 +3,7 @@ import * as actions from 'actions/homeActions'
 import {call, put} from 'redux-saga/effects'
 import {api} from 'services/api'
 
-const homeData = {items: []};
+const homeData = {movies: []};
 const homeError = {error: 'an error'};
 
 describe('homeSaga', () => {

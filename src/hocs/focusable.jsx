@@ -62,7 +62,7 @@ export class Focusable extends Component {
                 case keyTypes.KEY_OK:
                     if (this.props.handleSelect) {
                         this.props.handleSelect(
-                            this.props.item.nav.focusKey
+                            this.props.item
                         );
                     }
                     break;

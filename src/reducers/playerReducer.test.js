@@ -3,7 +3,7 @@ import * as playerTypes from 'constants/playerActionTypes';
 import * as playerStates from 'constants/playerStates';
 
 const state = {
-    data: {
+    movie: {
         id: null,
         src: null
     }
@@ -36,7 +36,7 @@ const didPauseVideoAction = {
 describe('playerReducer', () => {
     it('should create return state with loaded data', () => {
         const actual = playerReducer(state, loadedAction);
-        expect(actual.data).toEqual(loadedAction.payload);
+        expect(actual.movie).toEqual(loadedAction.payload);
     });
 
     it('should create return state with error on after fail action', () => {

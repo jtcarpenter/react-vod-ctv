@@ -29,7 +29,11 @@ export const api = {
                     return {error: errorMessages.ERROR_CONTENT};
                 }
                 return response.json()
-                    .then((data) => data);
+                    .then((data) => {
+                        return Object.assign({}, data, {
+                            id: opts.id
+                        })
+                    });
             })
             .catch((error) => {
                 throw error;

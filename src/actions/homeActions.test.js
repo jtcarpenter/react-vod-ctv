@@ -1,7 +1,7 @@
 import * as actions from 'actions/homeActions'
 import * as homeTypes from 'constants/homeActionTypes'
 
-const homeData = {items: []};
+const homeData = {movies: []};
 const error = 'an error';
 
 describe('homeActions', () => {
