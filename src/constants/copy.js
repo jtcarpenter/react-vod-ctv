@@ -1,0 +1,1 @@
+export const DEEP_LINK_TITLE = 'Deep link (no title available)';

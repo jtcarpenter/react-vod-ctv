@@ -1,5 +1,6 @@
 import * as playerTypes from 'constants/playerActionTypes';
 import * as playerStates from 'constants/playerStates';
+import * as copy from 'constants/copy';
 
 const defaultState = {
     movie: {
@@ -14,6 +15,8 @@ export const movieSelector = (movies, movie) => {
     let title = null;
     if (movies[movie.id]) {
         ({title} = movies[movie.id]);
+    } else {
+        title = copy.DEEP_LINK_TITLE;
     }
     return Object.assign({}, movie, {
         title
