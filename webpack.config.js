@@ -20,6 +20,7 @@ const config = {
     },
     output: {
         path: PATHS.public,
+        publicPath: '/',
         filename: 'bundle.js'
     },
     resolve: {
@@ -34,7 +35,7 @@ const config = {
     devtool: 'eval-source-map',
     devServer: {
         inline: true,
-        port: 4444
+        port: 4444,
     },
     module: {
         loaders: [

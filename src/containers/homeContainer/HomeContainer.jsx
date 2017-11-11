@@ -177,7 +177,7 @@ export class HomeContainer extends Component {
     }
 
     handleSelect(movie) {
-        this.props.history.push(`/player/${movie.id}`);
+        this.props.history.push(`/movie/${movie.id}`);
     }
 }
 

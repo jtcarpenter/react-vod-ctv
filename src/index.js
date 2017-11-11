@@ -22,7 +22,7 @@ ReactDOM.render(
                         </Route>
                         <Route
                             exact
-                            path="/player/:id?"
+                            path="/movie/:id?"
                             component={Player}
                         >
                         </Route>

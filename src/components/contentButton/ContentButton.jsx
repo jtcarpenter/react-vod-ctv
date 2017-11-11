@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import focusable from 'hocs/focusable.jsx';
 
 const rootClassName = 'content-button';
@@ -23,37 +22,35 @@ const mixinHeroClassName = (className, isHero) => {
 export function ContentButton({item, focused}) {
 
     return (
-        <Link to={`/player/${item.id}`}>
-            <div
-                id={`content-button-${item.id}`}
-                className={[
-                    mixinHeroClassName(
-                        rootClassName,
-                        item.category === 'hero'
-                    ),
-                    mixinFocusClassName(
-                        rootClassName,
-                        focused
-                    )
-                ].join(' ')}
+        <div
+            id={`content-button-${item.id}`}
+            className={[
+                mixinHeroClassName(
+                    rootClassName,
+                    item.category === 'hero'
+                ),
+                mixinFocusClassName(
+                    rootClassName,
+                    focused
+                )
+            ].join(' ')}
+        >
+            <h2
+                className={mixinHeroClassName(
+                    titleClassName,
+                    item.category === 'hero'
+                )}
             >
-                <h2
-                    className={mixinHeroClassName(
-                        titleClassName,
-                        item.category === 'hero'
-                    )}
-                >
-                    {item.title}
-                </h2>
-                <img
-                    className={mixinHeroClassName(
-                        imgClassName,
-                        item.category === 'hero'
-                    )}
-                    src={item.thumb}
-                />
-            </div>
-        </Link>
+                {item.title}
+            </h2>
+            <img
+                className={mixinHeroClassName(
+                    imgClassName,
+                    item.category === 'hero'
+                )}
+                src={item.thumb}
+            />
+        </div>
     );
 }
 
