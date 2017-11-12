@@ -1,22 +1,17 @@
 import React from 'react';
 import focusable from 'hocs/focusable.jsx';
-
-const decorateClassName = (className, focused) => {
-    return focused
-        ? `${className} ${className}--focused`
-        : className;
-}
+import PlayerCtrl from 'components/playerCtrl/PlayerCtrl.jsx';
+import * as copy from 'constants/copy';
 
 export function BackButton({focused}) {
-
     return (
-        <div
-            className={decorateClassName(
-                'icon-arrow-left player-ctrl player-ctrl__back',
-                focused
-            )}
+        <PlayerCtrl
+            className="icon"
+            focused={focused}
+            icon={copy.ICON_BACK}
+            borderRadius="10px"
         >
-        </div>
+        </PlayerCtrl>
     );
 }
 

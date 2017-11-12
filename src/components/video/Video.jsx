@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import * as playerStates from 'constants/playerStates';
-import styles from 'index.scss'
+import * as dimensions from 'constants/dimensions';
 
 const VIDEO_REF = 'VIDEO_REF';
 
@@ -31,8 +31,8 @@ export class Video extends PureComponent {
         }
         return (
             <video
-                width={styles.APP_WIDTH}
-                height={styles.APP_HEIGHT}
+                width={dimensions.APP_WIDTH}
+                height={dimensions.APP_HEIGHT}
                 ref={VIDEO_REF}
                 src={data.src}
                 onPlay={this.props.onDidPlay}

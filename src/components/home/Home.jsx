@@ -1,6 +1,6 @@
 import React from 'react';
 import Lane from 'containers/laneContainer/LaneContainer.jsx';
-import styles from 'index.scss';
+import * as dimensions from 'constants/dimensions';
 
 export function Home({
         laneData = {lanes: []},
@@ -10,8 +10,8 @@ export function Home({
         initialFocusKey
     }) {
 
-    const itemHeight = parseInt(styles.CONTENT_BTN_HEIGHT, 10);
-    const itemMargin = parseInt(styles.CONTENT_BTN_MARGIN, 10);
+    const itemHeight = parseInt(dimensions.CONTENT_BTN_HEIGHT, 10);
+    const itemMargin = parseInt(dimensions.CONTENT_BTN_MARGIN, 10);
     const offset = (focusedLaneIndex && focusedLaneIndex > 0)
         ? itemHeight / 2
         : 0;

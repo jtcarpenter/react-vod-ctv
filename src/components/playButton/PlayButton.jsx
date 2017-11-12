@@ -1,27 +1,22 @@
 import React from 'react';
 import focusable from 'hocs/focusable.jsx';
 import * as playerStates from 'constants/playerStates';
+import PlayerCtrl from 'components/playerCtrl/PlayerCtrl.jsx';
+import * as copy from 'constants/copy';
 
-const decorateClassName = (className, focused) => {
-    return focused
-        ? `${className} ${className}--focused`
-        : className;
-}
-
-export function PlayButton({
-        videoState,
-        focused
-    }) {
-
-    const className = videoState === playerStates.PLAYING
-        ? 'icon-pause player-ctrl player-ctrl__play'
-        : 'icon-play player-ctrl player-ctrl__play'
-
+export function PlayButton({videoState, focused}) {
+    const icon = videoState === playerStates.PLAYING
+        ? copy.ICON_PAUSE
+        : copy.ICON_PLAY
     return (
-        <div
-            className={decorateClassName(className, focused)}
+        <PlayerCtrl
+            className="icon"
+            focused={focused}
+            borderRadius="50%"
+            icon={icon}
+            videoState={videoState}
         >
-        </div>
+        </PlayerCtrl>
     );
 }
 

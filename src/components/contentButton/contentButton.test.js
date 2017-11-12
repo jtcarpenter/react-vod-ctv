@@ -26,7 +26,7 @@ describe('ContentButton', () => {
 
     it('should render correct title', () => {
         const wrapper = mount(contentButton);
-        expect(wrapper.find(`#content-button-${contentButtonData.id}`).text())
+        expect(wrapper.find(`h2`).text())
             .toEqual(contentButtonData.title);
     })
 })

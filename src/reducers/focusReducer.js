@@ -1,7 +1,6 @@
 import * as focusTypes from 'constants/focusActionTypes';
 
 const defaultState = {
-    // @TODO: This will be dependent on context
     currentFocus: null
 }
 

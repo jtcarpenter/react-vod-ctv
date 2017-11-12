@@ -90,16 +90,6 @@ if (process.env.NODE_ENV === 'prod') {
         }])
     );
 
-    config.module.loaders.push({
-        test: /\.scss$/,
-        loaders: [
-            'style-loader',
-            'css-loader',
-            'sass-loader'
-        ],
-        include: `${__dirname}/src`
-    });
-
     config.plugins.push(new HtmlWebpackPlugin({
         hash: false,
         title: 'VOD CTV',
@@ -108,16 +98,6 @@ if (process.env.NODE_ENV === 'prod') {
     }));
 
 } else {
-
-    config.module.loaders.push({
-        test: /\.scss$/,
-        loaders: [
-            'style-loader',
-            'css-loader?sourceMap',
-            'sass-loader'
-        ],
-        include: `${__dirname}/src`
-    });
 
     config.plugins.push(new HtmlWebpackPlugin({
         hash: true,
